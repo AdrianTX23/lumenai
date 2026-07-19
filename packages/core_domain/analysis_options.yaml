@@ -4,3 +4,7 @@ linter:
   rules:
     # Public API of the domain layer must be documented.
     public_member_api_docs: true
+    # Value objects here are final classes with all-final fields — provably
+    # immutable. The lint requires the @immutable annotation from
+    # package:meta, and the domain's zero-dependency policy outranks it.
+    avoid_equals_and_hash_code_on_mutable_classes: false
