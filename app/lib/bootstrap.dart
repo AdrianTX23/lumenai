@@ -28,6 +28,19 @@ void bootstrap(AppFlavor flavor) {
   runZonedGuarded(
     () {
       WidgetsFlutterBinding.ensureInitialized();
+
+      // Seed the demo dataset in the background; screens render loading
+      // states until the watched queries emit (stream-first, ADR-007).
+      unawaited(
+        container.read(seedDemoDataProvider).call().then(
+              (result) => result.fold(
+                onOk: (_) => logger.info('demo data ready'),
+                onErr: (failure) =>
+                    logger.error('seeding failed', error: failure),
+              ),
+            ),
+      );
+
       runApp(
         UncontrolledProviderScope(
           container: container,

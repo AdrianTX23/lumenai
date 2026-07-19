@@ -1,6 +1,10 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lumen_app/features/activity/presentation/screens/activity_screen.dart';
+import 'package:lumen_app/features/copilot/presentation/screens/copilot_placeholder_screen.dart';
 import 'package:lumen_app/features/home/presentation/screens/home_screen.dart';
+import 'package:lumen_app/features/insights/presentation/screens/insights_placeholder_screen.dart';
+import 'package:lumen_app/router/app_shell.dart';
 import 'package:lumen_app/router/routes.dart';
 
 /// Router as a provider so guards can depend on app state
@@ -9,10 +13,47 @@ final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
     initialLocation: AppRoutes.home.path,
     routes: [
-      GoRoute(
-        name: AppRoutes.home.name,
-        path: AppRoutes.home.path,
-        builder: (context, state) => const HomeScreen(),
+      StatefulShellRoute.indexedStack(
+        builder: (context, state, navigationShell) =>
+            AppShell(navigationShell: navigationShell),
+        branches: [
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: AppRoutes.home.name,
+                path: AppRoutes.home.path,
+                builder: (context, state) => const HomeScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: AppRoutes.activity.name,
+                path: AppRoutes.activity.path,
+                builder: (context, state) => const ActivityScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: AppRoutes.insights.name,
+                path: AppRoutes.insights.path,
+                builder: (context, state) => const InsightsPlaceholderScreen(),
+              ),
+            ],
+          ),
+          StatefulShellBranch(
+            routes: [
+              GoRoute(
+                name: AppRoutes.copilot.name,
+                path: AppRoutes.copilot.path,
+                builder: (context, state) => const CopilotPlaceholderScreen(),
+              ),
+            ],
+          ),
+        ],
       ),
     ],
   );

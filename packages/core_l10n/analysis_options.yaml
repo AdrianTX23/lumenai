@@ -1,1 +1,6 @@
 include: ../../analysis_options.yaml
+
+analyzer:
+  exclude:
+    # Output of `flutter gen-l10n` — not hand-maintained.
+    - lib/src/generated/**

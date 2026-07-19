@@ -8,7 +8,9 @@
 library;
 
 export 'src/components/actions/lds_button.dart';
+export 'src/components/actions/lds_search_field.dart';
 export 'src/components/display/amount_text.dart';
+export 'src/components/display/animated_amount.dart';
 export 'src/components/display/category_chip.dart';
 export 'src/components/display/lds_avatar.dart';
 export 'src/components/display/lds_card.dart';
@@ -18,6 +20,9 @@ export 'src/components/feedback/lds_sheet.dart';
 export 'src/components/feedback/lds_skeleton.dart';
 export 'src/components/feedback/lds_snack.dart';
 export 'src/components/feedback/lds_status_views.dart';
+export 'src/components/navigation/lds_bottom_bar.dart';
+export 'src/components/wallet/card_stack.dart';
+export 'src/components/wallet/payment_card.dart';
 export 'src/foundations/lds_scaffold.dart';
 export 'src/theme/lds_theme.dart';
 export 'src/tokens/lds_colors.dart';

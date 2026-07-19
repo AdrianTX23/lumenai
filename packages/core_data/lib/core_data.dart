@@ -7,6 +7,7 @@
 library;
 
 export 'src/database/lumen_database.dart';
+export 'src/database/open_database.dart';
 export 'src/repositories/drift_account_repository.dart';
 export 'src/repositories/drift_analytics_repository.dart';
 export 'src/repositories/drift_budget_repository.dart';
