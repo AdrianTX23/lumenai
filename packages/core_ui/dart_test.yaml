@@ -1,0 +1,3 @@
+tags:
+  golden:
+    description: Golden (screenshot) tests. Update with `flutter test --update-goldens --tags golden`.

@@ -1,0 +1,55 @@
+name: Widgetbook
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "widgetbook/**"
+      - "packages/core_ui/**"
+      - ".github/workflows/widgetbook.yaml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: widgetbook-pages
+  cancel-in-progress: true
+
+env:
+  # Keep in sync with .fvmrc
+  FLUTTER_VERSION: "3.27.4"
+
+jobs:
+  build-and-deploy:
+    name: Build web catalog → GitHub Pages
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: ${{ env.FLUTTER_VERSION }}
+          channel: stable
+          cache: true
+
+      - name: Build
+        working-directory: widgetbook
+        run: |
+          flutter pub get
+          flutter build web --release --base-href /${{ github.event.repository.name }}/
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: widgetbook/build/web
+
+      - id: deployment
+        uses: actions/deploy-pages@v4

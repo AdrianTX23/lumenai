@@ -1,12 +1,13 @@
+import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:lumen_app/router/app_router.dart';
 
-/// Root widget: wires router and theme.
+/// Root widget: wires router and the LUMEN Design System theme.
 ///
-/// The Material dark theme below is a bootstrap placeholder — Phase 1
-/// replaces it with the LUMEN Design System theme from core_ui, after
-/// which no screen may reference Material defaults directly.
+/// Dark is the primary brand experience; light has full parity and the
+/// system setting decides. No screen may reference Material defaults —
+/// everything flows from `context.lds`.
 class LumenApp extends ConsumerWidget {
   /// Creates the root app widget.
   const LumenApp({super.key});
@@ -17,7 +18,8 @@ class LumenApp extends ConsumerWidget {
     return MaterialApp.router(
       title: 'LUMEN AI',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.dark, useMaterial3: true),
+      theme: buildLdsLightTheme(),
+      darkTheme: buildLdsDarkTheme(),
       routerConfig: router,
     );
   }
