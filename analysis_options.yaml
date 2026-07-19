@@ -1,0 +1,28 @@
+# LUMEN AI — repo-wide analyzer configuration.
+# Every package includes this file (relatively) and declares
+# very_good_analysis as a dev dependency so the include below resolves.
+# Policy: zero warnings — CI runs `dart analyze --fatal-infos`.
+
+include: package:very_good_analysis/analysis_options.yaml
+
+analyzer:
+  language:
+    strict-casts: true
+    strict-inference: true
+    strict-raw-types: true
+  errors:
+    # Architecture boundary violations are surfaced by tools/check_boundaries.sh;
+    # analyzer-level strictness below keeps day-to-day quality high.
+    dead_code: error
+    unused_import: error
+    unused_local_variable: error
+
+linter:
+  rules:
+    # Project additions on top of very_good_analysis
+    prefer_final_locals: true
+    unawaited_futures: true
+    avoid_slow_async_io: true
+    # Disagreements with the base set
+    public_member_api_docs: false # enforced selectively: true inside core_domain & core_ui
+    lines_longer_than_80_chars: false

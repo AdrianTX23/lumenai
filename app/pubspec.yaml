@@ -1,0 +1,36 @@
+name: lumen_app
+description: >-
+  LUMEN AI — composition root and feature presentation slices.
+  See docs/02-architecture.md for the layering rules this package obeys.
+version: 0.1.0+1
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  # Internal packages — dependency matrix in docs/02-architecture.md §4.
+  # core_data is bound ONLY inside lib/di/ (enforced by tools/check_boundaries.sh).
+  core_data:
+    path: ../packages/core_data
+  core_domain:
+    path: ../packages/core_domain
+  core_l10n:
+    path: ../packages/core_l10n
+  core_telemetry:
+    path: ../packages/core_telemetry
+  core_ui:
+    path: ../packages/core_ui
+
+  flutter:
+    sdk: flutter
+  flutter_riverpod: ^2.6.1
+  go_router: ^14.6.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^6.0.0
+
+flutter:
+  uses-material-design: true

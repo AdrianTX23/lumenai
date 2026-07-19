@@ -1,0 +1,24 @@
+name: core_data
+description: >-
+  LUMEN AI infrastructure layer: Drift database, repository implementations
+  (adapters), DTOs/mappers, seed engine and remote clients. Implements the
+  ports defined in core_domain. Nothing depends on this package except the
+  app's composition root.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  core_domain:
+    path: ../core_domain
+  core_telemetry:
+    path: ../core_telemetry
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^6.0.0

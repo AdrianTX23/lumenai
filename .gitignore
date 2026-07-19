@@ -1,0 +1,42 @@
+# Dart / Flutter
+.dart_tool/
+.packages
+build/
+coverage/
+.flutter-plugins
+.flutter-plugins-dependencies
+*.iml
+
+# Generated code (checked in only when noted otherwise)
+*.g.dart.bak
+
+# IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+
+# Env & secrets — never committed
+*.env
+*.env.*
+*.keystore
+*.jks
+key.properties
+
+# iOS
+app/ios/Pods/
+app/ios/.symlinks/
+app/ios/Flutter/ephemeral/
+**/xcuserdata/
+
+# Android
+app/android/.gradle/
+app/android/local.properties
+
+# Proxy (Phase 5)
+proxy/node_modules/
+proxy/dist/
+
+# Melos
+.melos_tool/
+pubspec_overrides.yaml

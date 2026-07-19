@@ -1,0 +1,23 @@
+name: lumen_widgetbook
+description: >-
+  Living gallery of the LUMEN Design System. Depends on core_ui ONLY —
+  if a use case here needs anything else, the component's API is wrong.
+  Deployed as a web build to GitHub Pages.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  core_ui:
+    path: ../packages/core_ui
+  flutter:
+    sdk: flutter
+  widgetbook: ^3.10.0
+
+dev_dependencies:
+  very_good_analysis: ^6.0.0
+
+flutter:
+  uses-material-design: true

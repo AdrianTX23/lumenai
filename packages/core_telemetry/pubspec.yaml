@@ -1,0 +1,16 @@
+name: core_telemetry
+description: >-
+  LUMEN AI observability ports (logging, crash reporting, analytics) plus a
+  console adapter for development. Vendor adapters (e.g. Sentry) plug in
+  behind these interfaces without touching consumers.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+
+dev_dependencies:
+  test: ^1.25.0
+  very_good_analysis: ^6.0.0

@@ -1,0 +1,17 @@
+name: core_domain
+description: >-
+  LUMEN AI domain layer. Pure Dart: entities, value objects, repository
+  interfaces (ports), use cases and domain services. Depends on nothing.
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+# INTENTIONALLY EMPTY. The domain layer has zero runtime dependencies.
+# Adding one requires an ADR. See docs/02-architecture.md §3 (L1).
+dependencies:
+
+dev_dependencies:
+  test: ^1.25.0
+  very_good_analysis: ^6.0.0

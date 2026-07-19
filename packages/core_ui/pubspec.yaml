@@ -1,0 +1,20 @@
+name: core_ui
+description: >-
+  LUMEN Design System (LDS): tokens, theme, components, charts and motion.
+  Depends on Flutter only — no business logic, no data access. Components
+  receive plain display data so they render in isolation (Widgetbook,
+  golden tests).
+version: 0.1.0
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  very_good_analysis: ^6.0.0

@@ -1,0 +1,39 @@
+name: lumenai
+
+packages:
+  - app
+  - packages/*
+  - widgetbook
+
+command:
+  bootstrap:
+    runPubGetInParallel: true
+
+scripts:
+  analyze:
+    description: Static analysis across every package. Zero-warning policy.
+    run: dart run melos exec -c 1 -- dart analyze --fatal-infos .
+
+  format:
+    description: Verify formatting (CI mode — fails on diff).
+    run: dart run melos exec -c 1 -- dart format --set-exit-if-changed .
+
+  format:fix:
+    description: Apply formatting.
+    run: dart run melos exec -c 1 -- dart format .
+
+  test:
+    description: Run all tests (pure Dart + Flutter packages).
+    run: dart run melos run test:dart --no-select && dart run melos run test:flutter --no-select
+
+  test:dart:
+    description: Tests in pure Dart packages.
+    run: dart run melos exec -c 1 --no-flutter --dir-exists=test -- dart test --reporter=expanded
+
+  test:flutter:
+    description: Tests in Flutter packages.
+    run: dart run melos exec -c 1 --flutter --dir-exists=test -- flutter test
+
+  boundaries:
+    description: Enforce the architecture dependency matrix (docs/02-architecture.md §4).
+    run: bash tools/check_boundaries.sh

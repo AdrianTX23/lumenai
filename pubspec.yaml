@@ -1,0 +1,10 @@
+name: lumenai_workspace
+description: Workspace root for the LUMEN AI monorepo. Not a publishable package.
+publish_to: none
+
+environment:
+  sdk: ^3.6.0
+
+dev_dependencies:
+  melos: ^6.2.0
+  very_good_analysis: ^6.0.0

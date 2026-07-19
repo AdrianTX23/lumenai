@@ -1,0 +1,6 @@
+include: ../../analysis_options.yaml
+
+linter:
+  rules:
+    # The design system is a public API: document it.
+    public_member_api_docs: true

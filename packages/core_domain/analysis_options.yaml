@@ -1,0 +1,6 @@
+include: ../../analysis_options.yaml
+
+linter:
+  rules:
+    # Public API of the domain layer must be documented.
+    public_member_api_docs: true
