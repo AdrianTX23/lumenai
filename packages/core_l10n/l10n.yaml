@@ -5,3 +5,6 @@ output-class: AppLocalizations
 output-dir: lib/src/generated
 synthetic-package: false
 nullable-getter: false
+# Format generated output so `dart format --set-exit-if-changed` (CI's
+# format gate) stays green when pub get regenerates these files.
+format: true
