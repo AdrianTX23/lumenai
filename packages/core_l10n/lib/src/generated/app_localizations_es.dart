@@ -37,6 +37,16 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeSettings => 'Ajustes';
 
   @override
+  String get homeNoAccountsTitle => 'Aún no tienes cuentas';
+
+  @override
+  String get homeNoAccountsMessage =>
+      'Agrega una cuenta para empezar a registrar tu dinero.';
+
+  @override
+  String get homeAddAccount => 'Agregar cuenta';
+
+  @override
   String get activityTitle => 'Actividad';
 
   @override
@@ -50,6 +60,69 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get activityEmptyMessage => 'Prueba otra búsqueda u otro filtro.';
+
+  @override
+  String get activityAdd => 'Agregar transacción';
+
+  @override
+  String get activityAddTitle => 'Nueva transacción';
+
+  @override
+  String get activityAmountLabel => 'Monto';
+
+  @override
+  String get activityMerchantLabel => 'Comercio o descripción';
+
+  @override
+  String get activityMerchantHint => 'p. ej. Éxito, Uber, Nómina';
+
+  @override
+  String get activityAccountLabel => 'Cuenta';
+
+  @override
+  String get activityDateLabel => 'Fecha';
+
+  @override
+  String get activityNoteLabel => 'Nota (opcional)';
+
+  @override
+  String get activitySpend => 'Gasto';
+
+  @override
+  String get activityIncome => 'Ingreso';
+
+  @override
+  String get activitySave => 'Guardar transacción';
+
+  @override
+  String get activityCreated => 'Transacción guardada';
+
+  @override
+  String get activityCreateFailed => 'No se pudo guardar la transacción';
+
+  @override
+  String get activityInvalidAmount => 'Ingresa un monto mayor a cero';
+
+  @override
+  String get activitySelectAccount => 'Elige una cuenta';
+
+  @override
+  String get activityNoAccountsYet => 'Primero agrega una cuenta';
+
+  @override
+  String get activityDelete => 'Eliminar transacción';
+
+  @override
+  String get activityDeleted => 'Transacción eliminada';
+
+  @override
+  String get activityDeleteFailed => 'No se pudo eliminar la transacción';
+
+  @override
+  String get activityDeleteConfirmTitle => '¿Eliminar esta transacción?';
+
+  @override
+  String get activityDeleteConfirmBody => 'Esta acción no se puede deshacer.';
 
   @override
   String get detailCategory => 'Categoría';
@@ -370,4 +443,49 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get settingsResetFailed => 'No se pudieron restablecer los datos';
+
+  @override
+  String get settingsAccounts => 'Cuentas';
+
+  @override
+  String get accountTypeChecking => 'Cuenta corriente';
+
+  @override
+  String get accountTypeSavings => 'Ahorros';
+
+  @override
+  String get accountTypeCredit => 'Tarjeta de crédito';
+
+  @override
+  String get accountTypeCash => 'Efectivo';
+
+  @override
+  String get accountsAddTitle => 'Nueva cuenta';
+
+  @override
+  String get accountsNameLabel => 'Nombre';
+
+  @override
+  String get accountsNameHint => 'p. ej. Bancolombia Ahorros';
+
+  @override
+  String get accountsTypeLabel => 'Tipo';
+
+  @override
+  String get accountsOpeningBalanceLabel => 'Saldo inicial';
+
+  @override
+  String get accountsSave => 'Guardar cuenta';
+
+  @override
+  String get accountsCreated => 'Cuenta creada';
+
+  @override
+  String get accountsCreateFailed => 'No se pudo crear la cuenta';
+
+  @override
+  String get accountsInvalidName => 'Ingresa un nombre';
+
+  @override
+  String get accountsSelectType => 'Elige un tipo de cuenta';
 }

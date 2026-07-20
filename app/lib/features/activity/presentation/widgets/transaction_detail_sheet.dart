@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:lumen_app/common/category_ui.dart';
 import 'package:lumen_app/common/money_locale.dart';
+import 'package:lumen_app/di/di.dart';
 import 'package:lumen_app/features/activity/presentation/controllers/activity_controller.dart';
 
 /// Opens the transaction detail sheet with the recategorize flow.
@@ -107,7 +108,43 @@ class _DetailContent extends ConsumerWidget {
                   ),
             ],
           ),
+          const SizedBox(height: LdsSpacing.lg),
+          LdsButton(
+            label: l10n.activityDelete,
+            variant: LdsButtonVariant.destructive,
+            expand: true,
+            onPressed: () => _confirmDelete(context, ref),
+          ),
         ],
+      ),
+    );
+  }
+
+  Future<void> _confirmDelete(BuildContext context, WidgetRef ref) async {
+    final l10n = context.l10n;
+    final confirmed = await showLdsSheet<bool>(
+      context: context,
+      builder: (context) => _DeleteConfirmationSheet(l10n: l10n),
+    );
+    if (confirmed != true || !context.mounted) return;
+
+    final navigator = Navigator.of(context);
+    final result = await ref.read(deleteTransactionProvider)(transaction.id);
+
+    if (!context.mounted) return;
+    result.fold(
+      onOk: (_) {
+        LdsSnack.show(
+          context,
+          l10n.activityDeleted,
+          variant: LdsSnackVariant.success,
+        );
+        navigator.pop();
+      },
+      onErr: (_) => LdsSnack.show(
+        context,
+        l10n.activityDeleteFailed,
+        variant: LdsSnackVariant.error,
       ),
     );
   }
@@ -159,6 +196,56 @@ class _DetailRow extends StatelessWidget {
             child: Text(label, style: lds.typography.caption),
           ),
           Expanded(child: child),
+        ],
+      ),
+    );
+  }
+}
+
+class _DeleteConfirmationSheet extends StatelessWidget {
+  const _DeleteConfirmationSheet({required this.l10n});
+
+  final AppLocalizations l10n;
+
+  @override
+  Widget build(BuildContext context) {
+    final lds = context.lds;
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(
+        LdsSpacing.xl,
+        LdsSpacing.xs,
+        LdsSpacing.xl,
+        LdsSpacing.xl,
+      ),
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(l10n.activityDeleteConfirmTitle, style: lds.typography.title),
+          const SizedBox(height: LdsSpacing.xs),
+          Text(l10n.activityDeleteConfirmBody, style: lds.typography.bodyMuted),
+          const SizedBox(height: LdsSpacing.lg),
+          Row(
+            children: [
+              Expanded(
+                child: LdsButton(
+                  label: l10n.settingsCancel,
+                  variant: LdsButtonVariant.secondary,
+                  expand: true,
+                  onPressed: () => Navigator.of(context).pop(false),
+                ),
+              ),
+              const SizedBox(width: LdsSpacing.sm),
+              Expanded(
+                child: LdsButton(
+                  label: l10n.activityDelete,
+                  variant: LdsButtonVariant.destructive,
+                  expand: true,
+                  onPressed: () => Navigator.of(context).pop(true),
+                ),
+              ),
+            ],
+          ),
         ],
       ),
     );

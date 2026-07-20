@@ -184,6 +184,21 @@ final setThemeModeProvider = Provider<SetThemeMode>(
   (ref) => SetThemeMode(ref.watch(appearanceRepositoryProvider)),
 );
 
+/// Validates and persists a manually-entered account.
+final createAccountProvider = Provider<CreateAccount>(
+  (ref) => CreateAccount(ref.watch(accountRepositoryProvider)),
+);
+
+/// Validates and persists a manually-entered transaction.
+final createTransactionProvider = Provider<CreateTransaction>(
+  (ref) => CreateTransaction(ref.watch(transactionRepositoryProvider)),
+);
+
+/// Removes a manually-entered transaction.
+final deleteTransactionProvider = Provider<DeleteTransaction>(
+  (ref) => DeleteTransaction(ref.watch(transactionRepositoryProvider)),
+);
+
 /// The single place where ports are bound to adapters (composition root).
 List<Override> overridesFor(AppFlavor flavor) {
   return [

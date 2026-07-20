@@ -1,10 +1,12 @@
 import 'package:core_domain/src/entities/account.dart';
+import 'package:core_domain/src/failures/result.dart';
 
-/// Port: account reads. Implemented by core_data (Drift adapter).
-// Ports legitimately start single-method; a function type would freeze the
-// contract shape.
-// ignore: one_member_abstracts
+/// Port: account reads and manual creation. Implemented by core_data
+/// (Drift adapter).
 abstract interface class AccountRepository {
   /// All accounts with live balances. Emits on any relevant write.
   Stream<List<AccountSnapshot>> watchAccounts();
+
+  /// Adds a manually-entered account.
+  Future<Result<void>> createAccount(Account account);
 }

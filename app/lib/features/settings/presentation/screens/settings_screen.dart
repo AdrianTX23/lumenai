@@ -5,6 +5,7 @@ import 'package:core_l10n/core_l10n.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lumen_app/common/add_account_sheet.dart';
 import 'package:lumen_app/common/theme_mode_controller.dart';
 import 'package:lumen_app/di/di.dart';
 
@@ -82,6 +83,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
         children: [
           Text(l10n.settingsTitle, style: lds.typography.title),
           const SizedBox(height: LdsSpacing.lg),
+          _SectionLabel(l10n.settingsAccounts),
+          const SizedBox(height: LdsSpacing.xs),
+          LdsButton(
+            label: l10n.homeAddAccount,
+            variant: LdsButtonVariant.secondary,
+            icon: Icons.add_rounded,
+            expand: true,
+            onPressed: () => showAddAccountSheet(context),
+          ),
+          const SizedBox(height: LdsSpacing.xl),
           _SectionLabel(l10n.settingsAppearance),
           const SizedBox(height: LdsSpacing.xs),
           _AppearanceSelector(

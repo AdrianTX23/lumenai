@@ -37,6 +37,16 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeSettings => 'Settings';
 
   @override
+  String get homeNoAccountsTitle => 'No accounts yet';
+
+  @override
+  String get homeNoAccountsMessage =>
+      'Add an account to start tracking your money.';
+
+  @override
+  String get homeAddAccount => 'Add account';
+
+  @override
   String get activityTitle => 'Activity';
 
   @override
@@ -50,6 +60,69 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get activityEmptyMessage => 'Try a different search or filter.';
+
+  @override
+  String get activityAdd => 'Add transaction';
+
+  @override
+  String get activityAddTitle => 'New transaction';
+
+  @override
+  String get activityAmountLabel => 'Amount';
+
+  @override
+  String get activityMerchantLabel => 'Merchant or description';
+
+  @override
+  String get activityMerchantHint => 'e.g. Whole Foods, Uber, Payroll';
+
+  @override
+  String get activityAccountLabel => 'Account';
+
+  @override
+  String get activityDateLabel => 'Date';
+
+  @override
+  String get activityNoteLabel => 'Note (optional)';
+
+  @override
+  String get activitySpend => 'Spend';
+
+  @override
+  String get activityIncome => 'Income';
+
+  @override
+  String get activitySave => 'Save transaction';
+
+  @override
+  String get activityCreated => 'Transaction saved';
+
+  @override
+  String get activityCreateFailed => 'Couldn\'t save the transaction';
+
+  @override
+  String get activityInvalidAmount => 'Enter an amount greater than zero';
+
+  @override
+  String get activitySelectAccount => 'Choose an account';
+
+  @override
+  String get activityNoAccountsYet => 'Add an account first';
+
+  @override
+  String get activityDelete => 'Delete transaction';
+
+  @override
+  String get activityDeleted => 'Transaction deleted';
+
+  @override
+  String get activityDeleteFailed => 'Couldn\'t delete the transaction';
+
+  @override
+  String get activityDeleteConfirmTitle => 'Delete this transaction?';
+
+  @override
+  String get activityDeleteConfirmBody => 'This can\'t be undone.';
 
   @override
   String get detailCategory => 'Category';
@@ -366,4 +439,49 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get settingsResetFailed => 'Couldn\'t reset the data';
+
+  @override
+  String get settingsAccounts => 'Accounts';
+
+  @override
+  String get accountTypeChecking => 'Checking';
+
+  @override
+  String get accountTypeSavings => 'Savings';
+
+  @override
+  String get accountTypeCredit => 'Credit card';
+
+  @override
+  String get accountTypeCash => 'Cash';
+
+  @override
+  String get accountsAddTitle => 'New account';
+
+  @override
+  String get accountsNameLabel => 'Name';
+
+  @override
+  String get accountsNameHint => 'e.g. Chase Checking';
+
+  @override
+  String get accountsTypeLabel => 'Type';
+
+  @override
+  String get accountsOpeningBalanceLabel => 'Opening balance';
+
+  @override
+  String get accountsSave => 'Save account';
+
+  @override
+  String get accountsCreated => 'Account created';
+
+  @override
+  String get accountsCreateFailed => 'Couldn\'t create the account';
+
+  @override
+  String get accountsInvalidName => 'Enter a name';
+
+  @override
+  String get accountsSelectType => 'Choose an account type';
 }

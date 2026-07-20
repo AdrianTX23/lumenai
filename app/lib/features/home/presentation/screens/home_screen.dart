@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
+import 'package:lumen_app/common/add_account_sheet.dart';
 import 'package:lumen_app/common/category_ui.dart';
 import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/features/home/presentation/controllers/home_providers.dart';
@@ -57,6 +58,13 @@ class HomeScreen extends ConsumerWidget {
         Text(l10n.homeAccounts, style: lds.typography.heading),
         const SizedBox(height: LdsSpacing.md),
         switch (accounts) {
+          AsyncData(:final value) when value.isEmpty => LdsEmptyState(
+              icon: Icons.account_balance_wallet_outlined,
+              title: l10n.homeNoAccountsTitle,
+              message: l10n.homeNoAccountsMessage,
+              actionLabel: l10n.homeAddAccount,
+              onAction: () => showAddAccountSheet(context),
+            ),
           AsyncData(:final value) => Center(
               // Drag-driven card reordering repaints on every gesture
               // frame — isolate it so the rest of Home's scroll content

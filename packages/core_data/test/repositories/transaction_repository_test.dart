@@ -1,5 +1,6 @@
 import 'package:core_data/core_data.dart';
 import 'package:core_domain/core_domain.dart' hide Transaction;
+import 'package:core_domain/core_domain.dart' as domain show Transaction;
 import 'package:drift/drift.dart' hide isNull;
 import 'package:drift/native.dart';
 import 'package:flutter_test/flutter_test.dart';
@@ -92,6 +93,24 @@ void main() {
         'Savings': 50000 + 2000,
       });
     });
+
+    test('createAccount persists a manually-entered account', () async {
+      final result = await accountRepo.createAccount(
+        const Account(
+          id: AccountId('a3'),
+          name: 'Cash',
+          type: AccountType.cash,
+          currencyCode: 'EUR',
+          openingBalance: Money.minor(15000, 'EUR'),
+        ),
+      );
+
+      expect(result.isOk, isTrue);
+      final snapshots = await accountRepo.watchAccounts().first;
+      final cash = snapshots.singleWhere((s) => s.account.id.value == 'a3');
+      expect(cash.account.name, 'Cash');
+      expect(cash.balance.minorUnits, 15000);
+    });
   });
 
   group('DriftTransactionRepository', () {
@@ -147,6 +166,41 @@ void main() {
         Category.shopping,
         CategorySource.user,
       );
+
+      expect(result.isErr, isTrue);
+      expect((result as Err<void>).failure, isA<StorageFailure>());
+    });
+
+    test('createTransaction persists a manually-entered transaction', () async {
+      final result = await repo.createTransaction(
+        domain.Transaction(
+          id: const TransactionId('t4'),
+          accountId: const AccountId('a1'),
+          amount: const Money.minor(-9900, 'EUR'),
+          merchantName: 'Amazon',
+          merchantRaw: 'Amazon',
+          category: Category.shopping,
+          timestamp: DateTime(2026, 7, 12),
+          status: TransactionStatus.settled,
+          categorySource: CategorySource.user,
+        ),
+      );
+
+      expect(result.isOk, isTrue);
+      final all = await repo.watchTransactions(const TransactionFilter()).first;
+      expect(all.map((t) => t.id.value), contains('t4'));
+    });
+
+    test('deleteTransaction removes the row', () async {
+      final result = await repo.deleteTransaction(const TransactionId('t1'));
+
+      expect(result.isOk, isTrue);
+      final all = await repo.watchTransactions(const TransactionFilter()).first;
+      expect(all.map((t) => t.id.value), isNot(contains('t1')));
+    });
+
+    test('deleteTransaction on a missing id returns StorageFailure', () async {
+      final result = await repo.deleteTransaction(const TransactionId('nope'));
 
       expect(result.isErr, isTrue);
       expect((result as Err<void>).failure, isA<StorageFailure>());

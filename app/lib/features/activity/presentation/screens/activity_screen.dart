@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:lumen_app/common/category_ui.dart';
 import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/features/activity/presentation/controllers/activity_controller.dart';
+import 'package:lumen_app/features/activity/presentation/widgets/add_transaction_sheet.dart';
 import 'package:lumen_app/features/activity/presentation/widgets/transaction_detail_sheet.dart';
 
 /// Transaction feed with search and category filters.
@@ -34,91 +35,113 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
     final filter = ref.watch(activityControllerProvider);
     final feed = ref.watch(activityFeedProvider);
 
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
+    return Stack(
       children: [
-        Padding(
-          padding: const EdgeInsets.fromLTRB(
-            LdsSpacing.md,
-            LdsSpacing.lg,
-            LdsSpacing.md,
-            LdsSpacing.sm,
-          ),
-          child: Text(l10n.activityTitle, style: lds.typography.title),
-        ),
-        Padding(
-          padding: const EdgeInsets.symmetric(horizontal: LdsSpacing.md),
-          child: LdsSearchField(
-            hint: l10n.activitySearchHint,
-            controller: _searchController,
-            onChanged: ref.read(activityControllerProvider.notifier).setSearch,
-          ),
-        ),
-        const SizedBox(height: LdsSpacing.sm),
-        SizedBox(
-          height: 32,
-          child: ListView(
-            scrollDirection: Axis.horizontal,
-            padding: const EdgeInsets.symmetric(horizontal: LdsSpacing.md),
-            children: [
-              for (final category in Category.values)
-                if (category.isSpending)
-                  Padding(
-                    padding: const EdgeInsets.only(right: LdsSpacing.xs),
-                    child: _FilterChip(
-                      category: category,
-                      selected: filter.category == category,
-                      onTap: () => ref
-                          .read(activityControllerProvider.notifier)
-                          .toggleCategory(category),
-                    ),
-                  ),
-            ],
-          ),
-        ),
-        const SizedBox(height: LdsSpacing.xs),
-        Expanded(
-          child: switch (feed) {
-            AsyncData(:final value) when value.isEmpty => LdsEmptyState(
-                icon: Icons.receipt_long_rounded,
-                title: l10n.activityEmptyTitle,
-                message: l10n.activityEmptyMessage,
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(
+                LdsSpacing.md,
+                LdsSpacing.lg,
+                LdsSpacing.md,
+                LdsSpacing.sm,
               ),
-            AsyncData(:final value) => ListView.builder(
-                padding: const EdgeInsets.only(
-                  bottom: LdsSpacing.jumbo + LdsSpacing.xxl,
-                ),
-                itemCount: value.length,
-                itemBuilder: (context, index) {
-                  final transaction = value[index];
-                  // Isolates each row's repaint region so scrolling
-                  // doesn't force sibling rows to redraw — the feed can
-                  // run into the thousands of transactions (docs/06 §4).
-                  return RepaintBoundary(
-                    key: ValueKey(transaction.id),
-                    child: _FeedTile(transaction: transaction),
-                  );
-                },
+              child: Text(l10n.activityTitle, style: lds.typography.title),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: LdsSpacing.md),
+              child: LdsSearchField(
+                hint: l10n.activitySearchHint,
+                controller: _searchController,
+                onChanged:
+                    ref.read(activityControllerProvider.notifier).setSearch,
               ),
-            AsyncError() => LdsErrorState(
-                title: l10n.errorTitle,
-                message: l10n.errorMessage,
-                retryLabel: l10n.errorRetry,
-                onRetry: () => ref.invalidate(activityFeedProvider),
-              ),
-            _ => ListView(
+            ),
+            const SizedBox(height: LdsSpacing.sm),
+            SizedBox(
+              height: 32,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                padding: const EdgeInsets.symmetric(horizontal: LdsSpacing.md),
                 children: [
-                  for (var i = 0; i < 8; i++)
-                    const Padding(
-                      padding: EdgeInsets.symmetric(
-                        horizontal: LdsSpacing.md,
-                        vertical: LdsSpacing.xs,
+                  for (final category in Category.values)
+                    if (category.isSpending)
+                      Padding(
+                        padding: const EdgeInsets.only(right: LdsSpacing.xs),
+                        child: _FilterChip(
+                          category: category,
+                          selected: filter.category == category,
+                          onTap: () => ref
+                              .read(activityControllerProvider.notifier)
+                              .toggleCategory(category),
+                        ),
                       ),
-                      child: LdsSkeleton(height: 56),
-                    ),
                 ],
               ),
-          },
+            ),
+            const SizedBox(height: LdsSpacing.xs),
+            Expanded(
+              child: switch (feed) {
+                AsyncData(:final value) when value.isEmpty => LdsEmptyState(
+                    icon: Icons.receipt_long_rounded,
+                    title: l10n.activityEmptyTitle,
+                    message: l10n.activityEmptyMessage,
+                  ),
+                AsyncData(:final value) => ListView.builder(
+                    padding: const EdgeInsets.only(
+                      bottom: LdsSpacing.jumbo + LdsSpacing.xxl,
+                    ),
+                    itemCount: value.length,
+                    itemBuilder: (context, index) {
+                      final transaction = value[index];
+                      // Isolates each row's repaint region so scrolling
+                      // doesn't force sibling rows to redraw — the feed can
+                      // run into the thousands of transactions (docs/06 §4).
+                      return RepaintBoundary(
+                        key: ValueKey(transaction.id),
+                        child: _FeedTile(transaction: transaction),
+                      );
+                    },
+                  ),
+                AsyncError() => LdsErrorState(
+                    title: l10n.errorTitle,
+                    message: l10n.errorMessage,
+                    retryLabel: l10n.errorRetry,
+                    onRetry: () => ref.invalidate(activityFeedProvider),
+                  ),
+                _ => ListView(
+                    children: [
+                      for (var i = 0; i < 8; i++)
+                        const Padding(
+                          padding: EdgeInsets.symmetric(
+                            horizontal: LdsSpacing.md,
+                            vertical: LdsSpacing.xs,
+                          ),
+                          child: LdsSkeleton(height: 56),
+                        ),
+                    ],
+                  ),
+              },
+            ),
+          ],
+        ),
+        Positioned(
+          right: LdsSpacing.md,
+          bottom: LdsSpacing.md,
+          child: Semantics(
+            button: true,
+            label: l10n.activityAdd,
+            child: IconButton.filled(
+              onPressed: () => showAddTransactionSheet(context),
+              style: IconButton.styleFrom(
+                backgroundColor: lds.colors.accent,
+                foregroundColor: lds.colors.onAccent,
+                padding: const EdgeInsets.all(LdsSpacing.sm),
+              ),
+              icon: const Icon(Icons.add_rounded),
+            ),
+          ),
         ),
       ],
     );

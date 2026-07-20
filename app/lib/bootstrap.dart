@@ -29,17 +29,22 @@ void bootstrap(AppFlavor flavor) {
     () {
       WidgetsFlutterBinding.ensureInitialized();
 
-      // Seed the demo dataset in the background; screens render loading
-      // states until the watched queries emit (stream-first, ADR-007).
-      unawaited(
-        container.read(seedDemoDataProvider).call().then(
-              (result) => result.fold(
-                onOk: (_) => logger.info('demo data ready'),
-                onErr: (failure) =>
-                    logger.error('seeding failed', error: failure),
+      // Dev seeds a rich demo dataset in the background (screens render
+      // loading states until the watched queries emit, stream-first per
+      // ADR-007); prod starts with a genuinely empty ledger so real
+      // usage isn't polluted with fake Colombian merchant data — real
+      // users add their own accounts and transactions.
+      if (flavor == AppFlavor.dev) {
+        unawaited(
+          container.read(seedDemoDataProvider).call().then(
+                (result) => result.fold(
+                  onOk: (_) => logger.info('demo data ready'),
+                  onErr: (failure) =>
+                      logger.error('seeding failed', error: failure),
+                ),
               ),
-            ),
-      );
+        );
+      }
 
       runApp(
         UncontrolledProviderScope(

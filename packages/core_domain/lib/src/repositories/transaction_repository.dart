@@ -35,7 +35,7 @@ final class TransactionFilter {
   final int offset;
 }
 
-/// Port: transaction reads and category writes.
+/// Port: transaction reads and writes.
 abstract interface class TransactionRepository {
   /// Transactions matching [filter], newest first. Emits on any write.
   Stream<List<Transaction>> watchTransactions(TransactionFilter filter);
@@ -46,4 +46,10 @@ abstract interface class TransactionRepository {
     Category category,
     CategorySource source,
   );
+
+  /// Adds a manually-entered transaction.
+  Future<Result<void>> createTransaction(Transaction transaction);
+
+  /// Removes a manually-entered transaction.
+  Future<Result<void>> deleteTransaction(TransactionId id);
 }

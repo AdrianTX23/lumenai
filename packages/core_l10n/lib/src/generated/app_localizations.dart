@@ -158,6 +158,24 @@ abstract class AppLocalizations {
   /// **'Settings'**
   String get homeSettings;
 
+  /// No description provided for @homeNoAccountsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No accounts yet'**
+  String get homeNoAccountsTitle;
+
+  /// No description provided for @homeNoAccountsMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an account to start tracking your money.'**
+  String get homeNoAccountsMessage;
+
+  /// No description provided for @homeAddAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Add account'**
+  String get homeAddAccount;
+
   /// No description provided for @activityTitle.
   ///
   /// In en, this message translates to:
@@ -187,6 +205,132 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Try a different search or filter.'**
   String get activityEmptyMessage;
+
+  /// No description provided for @activityAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add transaction'**
+  String get activityAdd;
+
+  /// No description provided for @activityAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New transaction'**
+  String get activityAddTitle;
+
+  /// No description provided for @activityAmountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Amount'**
+  String get activityAmountLabel;
+
+  /// No description provided for @activityMerchantLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Merchant or description'**
+  String get activityMerchantLabel;
+
+  /// No description provided for @activityMerchantHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Whole Foods, Uber, Payroll'**
+  String get activityMerchantHint;
+
+  /// No description provided for @activityAccountLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Account'**
+  String get activityAccountLabel;
+
+  /// No description provided for @activityDateLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Date'**
+  String get activityDateLabel;
+
+  /// No description provided for @activityNoteLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Note (optional)'**
+  String get activityNoteLabel;
+
+  /// No description provided for @activitySpend.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend'**
+  String get activitySpend;
+
+  /// No description provided for @activityIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Income'**
+  String get activityIncome;
+
+  /// No description provided for @activitySave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save transaction'**
+  String get activitySave;
+
+  /// No description provided for @activityCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction saved'**
+  String get activityCreated;
+
+  /// No description provided for @activityCreateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the transaction'**
+  String get activityCreateFailed;
+
+  /// No description provided for @activityInvalidAmount.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount greater than zero'**
+  String get activityInvalidAmount;
+
+  /// No description provided for @activitySelectAccount.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an account'**
+  String get activitySelectAccount;
+
+  /// No description provided for @activityNoAccountsYet.
+  ///
+  /// In en, this message translates to:
+  /// **'Add an account first'**
+  String get activityNoAccountsYet;
+
+  /// No description provided for @activityDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete transaction'**
+  String get activityDelete;
+
+  /// No description provided for @activityDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Transaction deleted'**
+  String get activityDeleted;
+
+  /// No description provided for @activityDeleteFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t delete the transaction'**
+  String get activityDeleteFailed;
+
+  /// No description provided for @activityDeleteConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete this transaction?'**
+  String get activityDeleteConfirmTitle;
+
+  /// No description provided for @activityDeleteConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This can\'t be undone.'**
+  String get activityDeleteConfirmBody;
 
   /// No description provided for @detailCategory.
   ///
@@ -793,6 +937,96 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t reset the data'**
   String get settingsResetFailed;
+
+  /// No description provided for @settingsAccounts.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts'**
+  String get settingsAccounts;
+
+  /// No description provided for @accountTypeChecking.
+  ///
+  /// In en, this message translates to:
+  /// **'Checking'**
+  String get accountTypeChecking;
+
+  /// No description provided for @accountTypeSavings.
+  ///
+  /// In en, this message translates to:
+  /// **'Savings'**
+  String get accountTypeSavings;
+
+  /// No description provided for @accountTypeCredit.
+  ///
+  /// In en, this message translates to:
+  /// **'Credit card'**
+  String get accountTypeCredit;
+
+  /// No description provided for @accountTypeCash.
+  ///
+  /// In en, this message translates to:
+  /// **'Cash'**
+  String get accountTypeCash;
+
+  /// No description provided for @accountsAddTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New account'**
+  String get accountsAddTitle;
+
+  /// No description provided for @accountsNameLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Name'**
+  String get accountsNameLabel;
+
+  /// No description provided for @accountsNameHint.
+  ///
+  /// In en, this message translates to:
+  /// **'e.g. Chase Checking'**
+  String get accountsNameHint;
+
+  /// No description provided for @accountsTypeLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Type'**
+  String get accountsTypeLabel;
+
+  /// No description provided for @accountsOpeningBalanceLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Opening balance'**
+  String get accountsOpeningBalanceLabel;
+
+  /// No description provided for @accountsSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save account'**
+  String get accountsSave;
+
+  /// No description provided for @accountsCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Account created'**
+  String get accountsCreated;
+
+  /// No description provided for @accountsCreateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t create the account'**
+  String get accountsCreateFailed;
+
+  /// No description provided for @accountsInvalidName.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter a name'**
+  String get accountsInvalidName;
+
+  /// No description provided for @accountsSelectType.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose an account type'**
+  String get accountsSelectType;
 }
 
 class _AppLocalizationsDelegate

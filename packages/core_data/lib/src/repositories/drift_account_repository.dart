@@ -1,6 +1,7 @@
 import 'package:core_data/src/database/lumen_database.dart';
 import 'package:core_data/src/mappers/row_mappers.dart';
 import 'package:core_domain/core_domain.dart';
+import 'package:drift/drift.dart';
 
 /// Drift adapter for [AccountRepository].
 final class DriftAccountRepository implements AccountRepository {
@@ -21,5 +22,27 @@ final class DriftAccountRepository implements AccountRepository {
               )
               .toList(),
         );
+  }
+
+  @override
+  Future<Result<void>> createAccount(Account account) async {
+    try {
+      final cardMeta = account.cardMeta;
+      await _db.into(_db.accounts).insert(
+            AccountsCompanion.insert(
+              id: account.id.value,
+              name: account.name,
+              type: account.type,
+              currencyCode: account.currencyCode,
+              openingBalanceMinor: account.openingBalance.minorUnits,
+              cardLast4: Value(cardMeta?.last4),
+              cardNetwork: Value(cardMeta?.network),
+              cardSkinIndex: Value(cardMeta?.skinIndex),
+            ),
+          );
+      return const Result.ok(null);
+    } on Exception catch (e) {
+      return Result.err(StorageFailure('create account failed: $e'));
+    }
   }
 }
