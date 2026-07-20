@@ -4,6 +4,7 @@ import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
+import 'package:lumen_app/common/accounts_provider.dart';
 import 'package:lumen_app/common/category_ui.dart';
 import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/di/di.dart';
@@ -31,6 +32,14 @@ class _DetailContent extends ConsumerWidget {
     final l10n = context.l10n;
     final lds = context.lds;
     final locale = Localizations.localeOf(context).toLanguageTag();
+    final accounts = ref.watch(accountsStreamProvider).valueOrNull ?? const [];
+    String? accountName;
+    for (final snapshot in accounts) {
+      if (snapshot.account.id == transaction.accountId) {
+        accountName = snapshot.account.name;
+        break;
+      }
+    }
 
     return Padding(
       padding: const EdgeInsets.fromLTRB(
@@ -77,6 +86,11 @@ class _DetailContent extends ConsumerWidget {
               icon: transaction.category.icon,
             ),
           ),
+          if (accountName != null)
+            _DetailRow(
+              label: l10n.detailAccount,
+              child: Text(accountName, style: lds.typography.body),
+            ),
           _DetailRow(
             label: l10n.detailDate,
             child: Text(

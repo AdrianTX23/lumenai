@@ -155,12 +155,6 @@ class AppLocalizationsEs extends AppLocalizations {
   String get errorRetry => 'Reintentar';
 
   @override
-  String get comingSoonTitle => 'Próximamente';
-
-  @override
-  String get comingSoonCopilot => 'Tu copiloto financiero está en camino.';
-
-  @override
   String get insightsTitle => 'Análisis';
 
   @override
@@ -194,9 +188,6 @@ class AppLocalizationsEs extends AppLocalizations {
   @override
   String get insightsForecastCaption =>
       'Gasto proyectado según tus meses recientes';
-
-  @override
-  String get insightsPriceUp => 'Subió de precio';
 
   @override
   String get budgetsTitle => 'Presupuestos';

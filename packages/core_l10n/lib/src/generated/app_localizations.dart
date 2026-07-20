@@ -392,18 +392,6 @@ abstract class AppLocalizations {
   /// **'Try again'**
   String get errorRetry;
 
-  /// No description provided for @comingSoonTitle.
-  ///
-  /// In en, this message translates to:
-  /// **'Coming soon'**
-  String get comingSoonTitle;
-
-  /// No description provided for @comingSoonCopilot.
-  ///
-  /// In en, this message translates to:
-  /// **'Your financial copilot is on its way.'**
-  String get comingSoonCopilot;
-
   /// No description provided for @insightsTitle.
   ///
   /// In en, this message translates to:
@@ -469,12 +457,6 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Projected spend, based on your recent months'**
   String get insightsForecastCaption;
-
-  /// No description provided for @insightsPriceUp.
-  ///
-  /// In en, this message translates to:
-  /// **'Price up'**
-  String get insightsPriceUp;
 
   /// No description provided for @budgetsTitle.
   ///

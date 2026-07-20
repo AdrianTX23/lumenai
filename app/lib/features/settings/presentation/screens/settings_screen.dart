@@ -5,6 +5,7 @@ import 'package:core_l10n/core_l10n.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
 import 'package:lumen_app/common/add_account_sheet.dart';
 import 'package:lumen_app/common/theme_mode_controller.dart';
 import 'package:lumen_app/di/di.dart';
@@ -81,7 +82,20 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
       body: ListView(
         padding: const EdgeInsets.all(LdsSpacing.md),
         children: [
-          Text(l10n.settingsTitle, style: lds.typography.title),
+          Row(
+            children: [
+              IconButton(
+                icon: Icon(
+                  Icons.arrow_back_rounded,
+                  color: lds.colors.textPrimary,
+                ),
+                onPressed: () => context.pop(),
+              ),
+              Expanded(
+                child: Text(l10n.settingsTitle, style: lds.typography.title),
+              ),
+            ],
+          ),
           const SizedBox(height: LdsSpacing.lg),
           _SectionLabel(l10n.settingsAccounts),
           const SizedBox(height: LdsSpacing.xs),

@@ -141,20 +141,24 @@ class _BudgetTile extends ConsumerWidget {
               statusLabel: status,
             ),
           ),
-          IconButton(
-            icon: Icon(
-              Icons.delete_outline_rounded,
-              size: 20,
-              color: lds.colors.textMuted,
+          Semantics(
+            button: true,
+            label: l10n.budgetsDelete,
+            child: IconButton(
+              icon: Icon(
+                Icons.delete_outline_rounded,
+                size: 20,
+                color: lds.colors.textMuted,
+              ),
+              onPressed: () async {
+                final result = await ref.read(deleteBudgetProvider)(budget.id);
+                if (!context.mounted) return;
+                result.fold(
+                  onOk: (_) => LdsSnack.show(context, l10n.budgetsDeleted),
+                  onErr: (_) {},
+                );
+              },
             ),
-            onPressed: () async {
-              final result = await ref.read(deleteBudgetProvider)(budget.id);
-              if (!context.mounted) return;
-              result.fold(
-                onOk: (_) => LdsSnack.show(context, l10n.budgetsDeleted),
-                onErr: (_) {},
-              );
-            },
           ),
         ],
       ),

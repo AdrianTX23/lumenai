@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:core_domain/core_domain.dart';
 import 'package:core_l10n/core_l10n.dart';
 import 'package:core_ui/core_ui.dart';
@@ -65,6 +67,16 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
                 scrollDirection: Axis.horizontal,
                 padding: const EdgeInsets.symmetric(horizontal: LdsSpacing.md),
                 children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: LdsSpacing.xs),
+                    child: _AllFilterChip(
+                      label: l10n.activityFilterAll,
+                      selected: filter.category == null,
+                      onTap: () => ref
+                          .read(activityControllerProvider.notifier)
+                          .clearCategory(),
+                    ),
+                  ),
                   for (final category in Category.values)
                     if (category.isSpending)
                       Padding(
@@ -178,6 +190,50 @@ class _FilterChip extends StatelessWidget {
           label: category.label(l10n),
           paletteIndex: category.paletteIndex,
           icon: category.icon,
+        ),
+      ),
+    );
+  }
+}
+
+class _AllFilterChip extends StatelessWidget {
+  const _AllFilterChip({
+    required this.label,
+    required this.selected,
+    required this.onTap,
+  });
+
+  final String label;
+  final bool selected;
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final lds = context.lds;
+    return GestureDetector(
+      onTap: () {
+        unawaited(LdsHaptics.tap());
+        onTap();
+      },
+      child: AnimatedContainer(
+        duration: LdsMotion.fast,
+        padding: const EdgeInsets.symmetric(
+          horizontal: LdsSpacing.sm,
+          vertical: LdsSpacing.xxs,
+        ),
+        decoration: BoxDecoration(
+          color: selected ? lds.colors.accent : Colors.transparent,
+          borderRadius: BorderRadius.circular(LdsRadius.full),
+          border: Border.all(
+            color: selected ? lds.colors.accent : lds.colors.borderSubtle,
+          ),
+        ),
+        alignment: Alignment.center,
+        child: Text(
+          label,
+          style: lds.typography.label.copyWith(
+            color: selected ? lds.colors.onAccent : lds.colors.textPrimary,
+          ),
         ),
       ),
     );

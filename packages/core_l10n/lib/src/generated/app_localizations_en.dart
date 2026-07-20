@@ -155,12 +155,6 @@ class AppLocalizationsEn extends AppLocalizations {
   String get errorRetry => 'Try again';
 
   @override
-  String get comingSoonTitle => 'Coming soon';
-
-  @override
-  String get comingSoonCopilot => 'Your financial copilot is on its way.';
-
-  @override
   String get insightsTitle => 'Insights';
 
   @override
@@ -193,9 +187,6 @@ class AppLocalizationsEn extends AppLocalizations {
   @override
   String get insightsForecastCaption =>
       'Projected spend, based on your recent months';
-
-  @override
-  String get insightsPriceUp => 'Price up';
 
   @override
   String get budgetsTitle => 'Budgets';
