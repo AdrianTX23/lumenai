@@ -11,3 +11,4 @@ flutter_native_splash:
     image_dark: assets/icon/app_icon_foreground.png
   android: true
   ios: true
+  web: true

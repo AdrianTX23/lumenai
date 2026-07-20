@@ -35,6 +35,7 @@ class PaymentCard extends StatelessWidget {
     this.skinIndex = 0,
     this.balanceMinorUnits,
     this.currencyCode = 'EUR',
+    this.locale = 'en',
     this.width = 320,
     super.key,
   });
@@ -56,6 +57,9 @@ class PaymentCard extends StatelessWidget {
 
   /// ISO 4217 code for the balance.
   final String currencyCode;
+
+  /// BCP-47 locale tag for amount formatting.
+  final String locale;
 
   /// Card width; height follows the ID-1 aspect ratio.
   final double width;
@@ -94,6 +98,7 @@ class PaymentCard extends StatelessWidget {
               LdsMoneyFormat.format(
                 balanceMinorUnits!,
                 currencyCode: currencyCode,
+                locale: locale,
                 compact: true,
               ),
               style: lds.typography.moneyXl.copyWith(

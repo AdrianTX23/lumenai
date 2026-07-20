@@ -14,6 +14,8 @@ final class CardStackItem {
     required this.network,
     required this.skinIndex,
     this.balanceMinorUnits,
+    this.currencyCode = 'EUR',
+    this.locale = 'en',
   });
 
   /// Account display name.
@@ -30,6 +32,12 @@ final class CardStackItem {
 
   /// Optional balance.
   final int? balanceMinorUnits;
+
+  /// ISO 4217 code for [balanceMinorUnits].
+  final String currencyCode;
+
+  /// BCP-47 locale tag for amount formatting.
+  final String locale;
 }
 
 /// Apple-Wallet-style stack: the selected card sits in front, the rest
@@ -122,6 +130,8 @@ class _CardStackState extends State<CardStack> {
                           index == _selected // Only the front card shows
                               ? widget.items[index].balanceMinorUnits
                               : null, // money — the rest stay glanceable.
+                      currencyCode: widget.items[index].currencyCode,
+                      locale: widget.items[index].locale,
                       width: widget.width,
                     ),
                   ),

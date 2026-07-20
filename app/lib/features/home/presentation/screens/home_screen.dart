@@ -81,6 +81,8 @@ class HomeScreen extends ConsumerWidget {
                         skinIndex: snapshot.account.cardMeta?.skinIndex ??
                             snapshot.account.type.index + 1,
                         balanceMinorUnits: snapshot.balance.minorUnits,
+                        currencyCode: snapshot.balance.currencyCode,
+                        locale: appMoneyLocale,
                       ),
                   ],
                 ),
