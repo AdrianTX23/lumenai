@@ -39,6 +39,26 @@ final class MockCopilotRepository implements CopilotRepository {
     Category.shopping: ['shopping', 'compras'],
   };
 
+  /// Spanish category labels — the answer prose is Spanish-only, so this
+  /// can't reach into `core_l10n` (which core_data may not depend on)
+  /// for the app's real ARB translations.
+  static const _categoryLabels = {
+    Category.groceries: 'supermercado',
+    Category.dining: 'restaurantes',
+    Category.transport: 'transporte',
+    Category.subscriptions: 'suscripciones',
+    Category.housing: 'vivienda',
+    Category.utilities: 'suministros',
+    Category.health: 'salud',
+    Category.shopping: 'compras',
+    Category.travel: 'viajes',
+    Category.entertainment: 'ocio',
+    Category.income: 'ingresos',
+    Category.transfers: 'transferencias',
+    Category.fees: 'comisiones',
+    Category.other: 'otros',
+  };
+
   @override
   Stream<CopilotEvent> ask(ConversationId conversationId, String question) {
     final normalized = question.toLowerCase();
@@ -84,7 +104,7 @@ final class MockCopilotRepository implements CopilotRepository {
   Stream<CopilotEvent> _answerNetWorth() async* {
     final netWorth = await _analytics.watchNetWorth().first;
     yield* _typeOut(
-      'Your total net worth right now is ${_formatCop(netWorth.total)}.',
+      'Tu patrimonio total en este momento es ${_formatCop(netWorth.total)}.',
     );
   }
 
@@ -108,12 +128,12 @@ final class MockCopilotRepository implements CopilotRepository {
     final thisPeriod =
         categoryTxs.where((t) => period.contains(t.timestamp)).toList();
 
-    final label = category.name;
+    final label = _categoryLabels[category] ?? category.name;
     final text = thisPeriod.isEmpty
-        ? "You haven't spent anything on $label this month."
-        : "You've spent ${_formatCop(total)} on $label this month, "
-            'across ${thisPeriod.length} '
-            '${thisPeriod.length == 1 ? 'transaction' : 'transactions'}.';
+        ? 'No has gastado nada en $label este mes.'
+        : 'Has gastado ${_formatCop(total)} en $label este mes, en '
+            '${thisPeriod.length} '
+            '${thisPeriod.length == 1 ? 'transacción' : 'transacciones'}.';
 
     yield* _typeOut(text, evidence: thisPeriod.map((t) => t.id).toList());
   }
@@ -126,8 +146,8 @@ final class MockCopilotRepository implements CopilotRepository {
 
     if (insights.isEmpty) {
       yield* _typeOut(
-        "I couldn't find any recurring charges yet — check back once "
-        'you have a few months of history.',
+        'Todavía no encuentro cargos recurrentes — vuelve a preguntar '
+        'cuando tengas más meses de historial.',
       );
       return;
     }
@@ -140,15 +160,17 @@ final class MockCopilotRepository implements CopilotRepository {
     if (changed.isNotEmpty) {
       final biggest = changed.first;
       buffer.write(
-        'Heads up — ${biggest.merchantName} went from '
-        '${_formatCop(biggest.firstAmount)} to '
-        '${_formatCop(biggest.latestAmount)}, a '
-        '${biggest.percentChange.abs().round()}% increase. ',
+        'Atención — ${biggest.merchantName} pasó de '
+        '${_formatCop(biggest.firstAmount)} a '
+        '${_formatCop(biggest.latestAmount)}, un aumento del '
+        '${biggest.percentChange.abs().round()}%. ',
       );
     }
     buffer.write(
-      'You have ${insights.length} recurring '
-      "${insights.length == 1 ? 'charge' : 'charges'} I've spotted so far.",
+      'Tengo ${insights.length} cargo'
+      "${insights.length == 1 ? '' : 's'} recurrente"
+      "${insights.length == 1 ? '' : 's'} detectado"
+      "${insights.length == 1 ? '' : 's'} hasta ahora.",
     );
 
     final evidence = <TransactionId>[];
@@ -172,20 +194,22 @@ final class MockCopilotRepository implements CopilotRepository {
 
     if (forecast == null) {
       yield* _typeOut(
-        'I need a bit more history before I can project next month.',
+        'Necesito un poco más de historial antes de poder proyectar el '
+        'próximo mes.',
       );
       return;
     }
     yield* _typeOut(
-      "Based on your last ${forecast.monthsConsidered} months, I'd expect "
-      'around ${_formatCop(forecast.projectedSpend)} in spending next month.',
+      'Con base en tus últimos ${forecast.monthsConsidered} meses, '
+      'esperaría cerca de ${_formatCop(forecast.projectedSpend)} en gastos '
+      'para el próximo mes.',
     );
   }
 
   Stream<CopilotEvent> _answerFallback() => _typeOut(
-        'I can help with things like spending by category, your recurring '
-        'charges, or a forecast for next month — try asking about one of '
-        'those.',
+        'Puedo ayudarte con cosas como el gasto por categoría, tus cargos '
+        'recurrentes o un pronóstico para el próximo mes — intenta '
+        'preguntar sobre alguno de esos temas.',
       );
 
   /// Splits [text] into words and yields one [CopilotTokenDelta] per word
