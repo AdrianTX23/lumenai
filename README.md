@@ -7,7 +7,7 @@ domain modeling, a reactive local-first data layer, custom chart
 painters, and a grounded conversational AI — across mobile (iOS/Android)
 and a fully working web build, all sharing one codebase.
 
-**[Try the live demo →](#)** *(link goes live once hosted — see [Status](#status))* · Or run it yourself in under a minute, see [Getting started](#getting-started).
+**[Try the live demo →](https://adriantx23.github.io/lumenai/)** · [Design-system catalog (Widgetbook) →](https://adriantx23.github.io/lumenai/widgetbook/) · Or run it yourself in under a minute, see [Getting started](#getting-started).
 
 ## Screenshots
 
