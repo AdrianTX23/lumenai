@@ -34,6 +34,9 @@ class AppLocalizationsEn extends AppLocalizations {
   String get homeSeeAll => 'See all';
 
   @override
+  String get homeSettings => 'Settings';
+
+  @override
   String get activityTitle => 'Activity';
 
   @override
@@ -246,4 +249,121 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get categoryOther => 'Other';
+
+  @override
+  String get onboardingSkip => 'Skip';
+
+  @override
+  String get onboardingNext => 'Next';
+
+  @override
+  String get onboardingGetStarted => 'Get started';
+
+  @override
+  String get onboardingPage1Title => 'All your money, one clear view';
+
+  @override
+  String get onboardingPage1Body =>
+      'Accounts, cards and spending together — no more switching between apps.';
+
+  @override
+  String get onboardingPage2Title => 'Insights that actually help';
+
+  @override
+  String get onboardingPage2Body =>
+      'Spending trends, recurring charges and a forecast for next month, surfaced automatically.';
+
+  @override
+  String get onboardingPage3Title => 'Ask Lumen anything';
+
+  @override
+  String get onboardingPage3Body =>
+      'A conversational copilot grounded in your real transactions — every answer is traceable.';
+
+  @override
+  String get onboardingSecurityTitle => 'Protect your app';
+
+  @override
+  String get onboardingSecurityBody =>
+      'Turn on biometric lock to keep your finances private, even if someone else picks up your phone.';
+
+  @override
+  String get onboardingEnableBiometrics => 'Enable Face ID / fingerprint lock';
+
+  @override
+  String get onboardingBiometricReason =>
+      'Confirm it\'s you to protect LUMEN AI';
+
+  @override
+  String get onboardingBiometricUnavailable =>
+      'Biometrics aren\'t available on this device';
+
+  @override
+  String get lockTitle => 'LUMEN AI is locked';
+
+  @override
+  String get lockSubtitle => 'Use Face ID or your fingerprint to continue';
+
+  @override
+  String get lockUnlockButton => 'Unlock';
+
+  @override
+  String get lockReason => 'Confirm it\'s you to open LUMEN AI';
+
+  @override
+  String get lockFailed => 'Couldn\'t verify it\'s you — try again';
+
+  @override
+  String get settingsTitle => 'Settings';
+
+  @override
+  String get settingsAppearance => 'Appearance';
+
+  @override
+  String get settingsAppearanceCaption =>
+      'Follows your system\'s light/dark setting';
+
+  @override
+  String get settingsThemeSystem => 'System';
+
+  @override
+  String get settingsThemeLight => 'Light';
+
+  @override
+  String get settingsThemeDark => 'Dark';
+
+  @override
+  String get settingsSecurity => 'Security';
+
+  @override
+  String get settingsBiometricLock => 'Biometric lock';
+
+  @override
+  String get settingsBiometricUnavailable =>
+      'This device doesn\'t have biometrics available';
+
+  @override
+  String get settingsData => 'Data';
+
+  @override
+  String get settingsResetData => 'Reset demo data';
+
+  @override
+  String get settingsResetConfirmTitle => 'Reset all data?';
+
+  @override
+  String get settingsResetConfirmBody =>
+      'This wipes and regenerates the demo dataset. This can\'t be undone.';
+
+  @override
+  String get settingsResetConfirmAction => 'Reset';
+
+  @override
+  String get settingsCancel => 'Cancel';
+
+  @override
+  String get settingsResetSuccess => 'Data reset';
+
+  @override
+  String get settingsResetFailed => 'Couldn\'t reset the data';
 }

@@ -16,4 +16,13 @@ abstract final class AppRoutes {
 
   /// Copilot tab (Phase 5).
   static const copilot = (name: 'copilot', path: '/copilot');
+
+  /// First-run onboarding (Phase 6). Outside the tab shell.
+  static const onboarding = (name: 'onboarding', path: '/onboarding');
+
+  /// Biometric unlock prompt (Phase 6). Outside the tab shell.
+  static const lock = (name: 'lock', path: '/lock');
+
+  /// Settings — pushed from Home (Phase 6).
+  static const settings = (name: 'settings', path: '/settings');
 }

@@ -46,6 +46,16 @@ final class AiFailure extends Failure {
   String get label => 'AiFailure';
 }
 
+/// Biometric authentication is unavailable, not enrolled, was cancelled,
+/// or did not match.
+final class AuthFailure extends Failure {
+  /// Creates an [AuthFailure] with a developer-facing [message].
+  const AuthFailure(super.message);
+
+  @override
+  String get label => 'AuthFailure';
+}
+
 /// A business rule rejected the operation (e.g. budget limit must be
 /// positive). Carries enough context for presentation to explain why.
 final class ValidationFailure extends Failure {

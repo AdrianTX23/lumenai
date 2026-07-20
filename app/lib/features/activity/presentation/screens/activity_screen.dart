@@ -89,8 +89,16 @@ class _ActivityScreenState extends ConsumerState<ActivityScreen> {
                   bottom: LdsSpacing.jumbo + LdsSpacing.xxl,
                 ),
                 itemCount: value.length,
-                itemBuilder: (context, index) =>
-                    _FeedTile(transaction: value[index]),
+                itemBuilder: (context, index) {
+                  final transaction = value[index];
+                  // Isolates each row's repaint region so scrolling
+                  // doesn't force sibling rows to redraw — the feed can
+                  // run into the thousands of transactions (docs/06 §4).
+                  return RepaintBoundary(
+                    key: ValueKey(transaction.id),
+                    child: _FeedTile(transaction: transaction),
+                  );
+                },
               ),
             AsyncError() => LdsErrorState(
                 title: l10n.errorTitle,

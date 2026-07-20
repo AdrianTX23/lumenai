@@ -1,5 +1,7 @@
 package ai.lumen.lumen_app
 
-import io.flutter.embedding.android.FlutterActivity
+import io.flutter.embedding.android.FlutterFragmentActivity
 
-class MainActivity: FlutterActivity()
+// FlutterFragmentActivity (not FlutterActivity) — local_auth's biometric
+// prompt needs a FragmentActivity host.
+class MainActivity: FlutterFragmentActivity()

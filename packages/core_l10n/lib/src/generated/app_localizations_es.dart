@@ -34,6 +34,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get homeSeeAll => 'Ver todo';
 
   @override
+  String get homeSettings => 'Ajustes';
+
+  @override
   String get activityTitle => 'Actividad';
 
   @override
@@ -249,4 +252,122 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get categoryOther => 'Otros';
+
+  @override
+  String get onboardingSkip => 'Omitir';
+
+  @override
+  String get onboardingNext => 'Siguiente';
+
+  @override
+  String get onboardingGetStarted => 'Comenzar';
+
+  @override
+  String get onboardingPage1Title => 'Todo tu dinero, en una sola vista';
+
+  @override
+  String get onboardingPage1Body =>
+      'Cuentas, tarjetas y gastos juntos — sin cambiar entre aplicaciones.';
+
+  @override
+  String get onboardingPage2Title => 'Análisis que realmente ayudan';
+
+  @override
+  String get onboardingPage2Body =>
+      'Tendencias de gasto, cargos recurrentes y un pronóstico para el próximo mes, de forma automática.';
+
+  @override
+  String get onboardingPage3Title => 'Pregúntale lo que sea a Lumen';
+
+  @override
+  String get onboardingPage3Body =>
+      'Un copiloto conversacional basado en tus transacciones reales — cada respuesta es rastreable.';
+
+  @override
+  String get onboardingSecurityTitle => 'Protege tu app';
+
+  @override
+  String get onboardingSecurityBody =>
+      'Activa el bloqueo biométrico para mantener tus finanzas privadas, incluso si alguien más toma tu teléfono.';
+
+  @override
+  String get onboardingEnableBiometrics => 'Activar Face ID / huella';
+
+  @override
+  String get onboardingBiometricReason =>
+      'Confirma tu identidad para proteger LUMEN AI';
+
+  @override
+  String get onboardingBiometricUnavailable =>
+      'La biometría no está disponible en este dispositivo';
+
+  @override
+  String get lockTitle => 'LUMEN AI está bloqueada';
+
+  @override
+  String get lockSubtitle => 'Usa Face ID o tu huella para continuar';
+
+  @override
+  String get lockUnlockButton => 'Desbloquear';
+
+  @override
+  String get lockReason => 'Confirma tu identidad para abrir LUMEN AI';
+
+  @override
+  String get lockFailed =>
+      'No pudimos verificar tu identidad — intenta de nuevo';
+
+  @override
+  String get settingsTitle => 'Ajustes';
+
+  @override
+  String get settingsAppearance => 'Apariencia';
+
+  @override
+  String get settingsAppearanceCaption =>
+      'Sigue el modo claro/oscuro de tu sistema';
+
+  @override
+  String get settingsThemeSystem => 'Sistema';
+
+  @override
+  String get settingsThemeLight => 'Claro';
+
+  @override
+  String get settingsThemeDark => 'Oscuro';
+
+  @override
+  String get settingsSecurity => 'Seguridad';
+
+  @override
+  String get settingsBiometricLock => 'Bloqueo biométrico';
+
+  @override
+  String get settingsBiometricUnavailable =>
+      'Este dispositivo no tiene biometría disponible';
+
+  @override
+  String get settingsData => 'Datos';
+
+  @override
+  String get settingsResetData => 'Restablecer datos de demo';
+
+  @override
+  String get settingsResetConfirmTitle => '¿Restablecer todos los datos?';
+
+  @override
+  String get settingsResetConfirmBody =>
+      'Esto borra y vuelve a generar el conjunto de datos de demostración. No se puede deshacer.';
+
+  @override
+  String get settingsResetConfirmAction => 'Restablecer';
+
+  @override
+  String get settingsCancel => 'Cancelar';
+
+  @override
+  String get settingsResetSuccess => 'Datos restablecidos';
+
+  @override
+  String get settingsResetFailed => 'No se pudieron restablecer los datos';
 }

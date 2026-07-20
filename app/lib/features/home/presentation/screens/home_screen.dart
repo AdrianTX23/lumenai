@@ -31,6 +31,17 @@ class HomeScreen extends ConsumerWidget {
         LdsSpacing.jumbo + LdsSpacing.xxl,
       ),
       children: [
+        Align(
+          alignment: Alignment.centerRight,
+          child: Semantics(
+            button: true,
+            label: l10n.homeSettings,
+            child: IconButton(
+              icon: Icon(Icons.settings_outlined, color: lds.colors.textMuted),
+              onPressed: () => context.push(AppRoutes.settings.path),
+            ),
+          ),
+        ),
         Text(l10n.homeNetWorth, style: lds.typography.bodyMuted),
         const SizedBox(height: LdsSpacing.xxs),
         switch (netWorth) {
@@ -47,19 +58,24 @@ class HomeScreen extends ConsumerWidget {
         const SizedBox(height: LdsSpacing.md),
         switch (accounts) {
           AsyncData(:final value) => Center(
-              child: CardStack(
-                width: 340,
-                items: [
-                  for (final snapshot in value)
-                    CardStackItem(
-                      accountName: snapshot.account.name,
-                      last4: snapshot.account.cardMeta?.last4 ?? '····',
-                      network: snapshot.account.cardMeta?.network ?? '',
-                      skinIndex: snapshot.account.cardMeta?.skinIndex ??
-                          snapshot.account.type.index + 1,
-                      balanceMinorUnits: snapshot.balance.minorUnits,
-                    ),
-                ],
+              // Drag-driven card reordering repaints on every gesture
+              // frame — isolate it so the rest of Home's scroll content
+              // doesn't repaint along with it (docs/06 §4).
+              child: RepaintBoundary(
+                child: CardStack(
+                  width: 340,
+                  items: [
+                    for (final snapshot in value)
+                      CardStackItem(
+                        accountName: snapshot.account.name,
+                        last4: snapshot.account.cardMeta?.last4 ?? '····',
+                        network: snapshot.account.cardMeta?.network ?? '',
+                        skinIndex: snapshot.account.cardMeta?.skinIndex ??
+                            snapshot.account.type.index + 1,
+                        balanceMinorUnits: snapshot.balance.minorUnits,
+                      ),
+                  ],
+                ),
               ),
             ),
           AsyncError() => _HomeError(ref: ref),

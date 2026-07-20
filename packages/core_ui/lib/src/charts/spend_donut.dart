@@ -74,29 +74,31 @@ class SpendDonut extends StatelessWidget {
         tween: Tween(begin: 0, end: 1),
         duration: reduceMotion ? Duration.zero : LdsMotion.celebratory,
         curve: LdsMotion.emphasizedEasing,
-        builder: (context, progress, _) => SizedBox(
-          width: diameter,
-          height: diameter,
-          child: CustomPaint(
-            painter: _DonutPainter(
-              slices: slices,
-              progress: progress,
-              strokeWidth: strokeWidth,
-              trackColor: lds.colors.borderSubtle,
-            ),
-            child: centerLabel == null && centerValue == null
-                ? null
-                : Center(
-                    child: Column(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        if (centerValue != null)
-                          Text(centerValue!, style: lds.typography.heading),
-                        if (centerLabel != null)
-                          Text(centerLabel!, style: lds.typography.caption),
-                      ],
+        builder: (context, progress, _) => RepaintBoundary(
+          child: SizedBox(
+            width: diameter,
+            height: diameter,
+            child: CustomPaint(
+              painter: _DonutPainter(
+                slices: slices,
+                progress: progress,
+                strokeWidth: strokeWidth,
+                trackColor: lds.colors.borderSubtle,
+              ),
+              child: centerLabel == null && centerValue == null
+                  ? null
+                  : Center(
+                      child: Column(
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          if (centerValue != null)
+                            Text(centerValue!, style: lds.typography.heading),
+                          if (centerLabel != null)
+                            Text(centerLabel!, style: lds.typography.caption),
+                        ],
+                      ),
                     ),
-                  ),
+            ),
           ),
         ),
       ),

@@ -1,0 +1,9 @@
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "assets/icon/app_icon.png"
+  # Dark-navy backdrop matches LdsPalette.neutral950 (the app's primary
+  # surface) so the icon reads consistently with the in-app dark theme.
+  adaptive_icon_background: "#070A0F"
+  adaptive_icon_foreground: "assets/icon/app_icon_foreground.png"
+  remove_alpha_ios: true

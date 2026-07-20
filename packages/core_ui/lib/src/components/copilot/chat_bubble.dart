@@ -1,6 +1,9 @@
+import 'dart:async';
+
 import 'package:core_ui/src/theme/lds_theme.dart';
 import 'package:core_ui/src/tokens/lds_motion.dart';
 import 'package:core_ui/src/tokens/lds_spacing.dart';
+import 'package:core_ui/src/utils/lds_haptics.dart';
 import 'package:flutter/material.dart';
 
 /// Who a [ChatBubble] represents.
@@ -122,7 +125,12 @@ class _EvidenceChip extends StatelessWidget {
   Widget build(BuildContext context) {
     final lds = context.lds;
     return GestureDetector(
-      onTap: onTap,
+      onTap: onTap == null
+          ? null
+          : () {
+              unawaited(LdsHaptics.tap());
+              onTap!();
+            },
       child: Container(
         padding: const EdgeInsets.symmetric(
           horizontal: LdsSpacing.xs,

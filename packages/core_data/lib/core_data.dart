@@ -8,6 +8,10 @@ library;
 
 export 'src/database/lumen_database.dart';
 export 'src/database/open_database.dart';
+export 'src/platform/biometric_lock_repository.dart';
+export 'src/platform/prefs_appearance_repository.dart';
+export 'src/platform/prefs_onboarding_repository.dart';
+export 'src/platform/sqlcipher_key_store.dart';
 export 'src/repositories/drift_account_repository.dart';
 export 'src/repositories/drift_analytics_repository.dart';
 export 'src/repositories/drift_budget_repository.dart';

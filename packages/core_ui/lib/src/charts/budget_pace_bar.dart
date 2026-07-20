@@ -76,19 +76,22 @@ class BudgetPaceBar extends StatelessWidget {
               tween: Tween(begin: 0, end: clamped),
               duration: reduceMotion ? Duration.zero : LdsMotion.emphasized,
               curve: LdsMotion.emphasizedEasing,
-              builder: (context, value, _) => CustomPaint(
-                // A childless CustomPaint reports zero intrinsic size and
-                // just fills whatever finite width layout gives it —
-                // unlike a FractionallySizedBox, which cannot answer an
-                // intrinsic-width query (undefined without a resolved
-                // parent width) and crashes inside golden-test harnesses
-                // that probe intrinsics to lay out scenario grids.
-                painter: _PaceBarPainter(
-                  progress: value,
-                  trackColor: lds.colors.borderSubtle,
-                  fillColor: color,
+              builder: (context, value, _) => RepaintBoundary(
+                child: CustomPaint(
+                  // A childless CustomPaint reports zero intrinsic size
+                  // and just fills whatever finite width layout gives it
+                  // — unlike a FractionallySizedBox, which cannot answer
+                  // an intrinsic-width query (undefined without a
+                  // resolved parent width) and crashes inside
+                  // golden-test harnesses that probe intrinsics to lay
+                  // out scenario grids.
+                  painter: _PaceBarPainter(
+                    progress: value,
+                    trackColor: lds.colors.borderSubtle,
+                    fillColor: color,
+                  ),
+                  size: Size.infinite,
                 ),
-                size: Size.infinite,
               ),
             ),
           ),

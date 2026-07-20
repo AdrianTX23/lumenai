@@ -2,6 +2,7 @@ import 'package:core_l10n/core_l10n.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:lumen_app/common/theme_mode_controller.dart';
 import 'package:lumen_app/router/app_router.dart';
 
 /// Root widget: wires router and the LUMEN Design System theme.
@@ -16,11 +17,13 @@ class LumenApp extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final router = ref.watch(appRouterProvider);
+    final themeMode = ref.watch(themeModeControllerProvider);
     return MaterialApp.router(
       onGenerateTitle: (context) => context.l10n.appTitle,
       debugShowCheckedModeBanner: false,
       theme: buildLdsLightTheme(),
       darkTheme: buildLdsDarkTheme(),
+      themeMode: themeMode.toFlutterThemeMode,
       localizationsDelegates: AppLocalizations.localizationsDelegates,
       supportedLocales: AppLocalizations.supportedLocales,
       routerConfig: router,

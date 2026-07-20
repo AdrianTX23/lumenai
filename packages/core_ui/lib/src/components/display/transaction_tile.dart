@@ -1,8 +1,11 @@
+import 'dart:async';
+
 import 'package:core_ui/src/components/display/amount_text.dart';
 import 'package:core_ui/src/components/display/category_chip.dart';
 import 'package:core_ui/src/components/display/lds_avatar.dart';
 import 'package:core_ui/src/theme/lds_theme.dart';
 import 'package:core_ui/src/tokens/lds_spacing.dart';
+import 'package:core_ui/src/utils/lds_haptics.dart';
 import 'package:flutter/material.dart';
 
 /// One transaction row: merchant avatar, name, category chip, amount.
@@ -51,7 +54,12 @@ class TransactionTile extends StatelessWidget {
   Widget build(BuildContext context) {
     final lds = context.lds;
     return InkWell(
-      onTap: onTap,
+      onTap: onTap == null
+          ? null
+          : () {
+              unawaited(LdsHaptics.tap());
+              onTap!();
+            },
       borderRadius: BorderRadius.circular(LdsRadius.md),
       child: Padding(
         padding: const EdgeInsets.symmetric(

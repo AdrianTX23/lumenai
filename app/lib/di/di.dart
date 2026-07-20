@@ -57,6 +57,21 @@ final copilotRepositoryProvider = Provider<CopilotRepository>(
   ),
 );
 
+/// Biometric app-lock: availability, enabled state, and the prompt.
+final appLockRepositoryProvider = Provider<AppLockRepository>(
+  (ref) => BiometricLockRepository(),
+);
+
+/// First-run onboarding completion flag.
+final onboardingRepositoryProvider = Provider<OnboardingRepository>(
+  (ref) => const PrefsOnboardingRepository(),
+);
+
+/// The user's persisted theme preference.
+final appearanceRepositoryProvider = Provider<AppearanceRepository>(
+  (ref) => const PrefsAppearanceRepository(),
+);
+
 // ── Use cases ────────────────────────────────────────────────────────────
 
 /// Streams accounts with balances.
@@ -124,6 +139,51 @@ final askCopilotProvider = Provider<AskCopilot>(
   (ref) => AskCopilot(ref.watch(copilotRepositoryProvider)),
 );
 
+/// Whether the device can offer biometric app-lock.
+final isBiometricAvailableProvider = Provider<IsBiometricAvailable>(
+  (ref) => IsBiometricAvailable(ref.watch(appLockRepositoryProvider)),
+);
+
+/// Whether the user has app-lock turned on.
+final isAppLockEnabledProvider = Provider<IsAppLockEnabled>(
+  (ref) => IsAppLockEnabled(ref.watch(appLockRepositoryProvider)),
+);
+
+/// Turns app-lock on or off.
+final setAppLockEnabledProvider = Provider<SetAppLockEnabled>(
+  (ref) => SetAppLockEnabled(ref.watch(appLockRepositoryProvider)),
+);
+
+/// Runs the biometric prompt to unlock the app.
+final authenticateWithAppLockProvider = Provider<AuthenticateWithAppLock>(
+  (ref) => AuthenticateWithAppLock(ref.watch(appLockRepositoryProvider)),
+);
+
+/// Wipes and reseeds all data (settings screen).
+final resetDataProvider = Provider<ResetData>(
+  (ref) => ResetData(ref.watch(seedRepositoryProvider)),
+);
+
+/// Whether first-run onboarding has already been completed.
+final isOnboardingCompletedProvider = Provider<IsOnboardingCompleted>(
+  (ref) => IsOnboardingCompleted(ref.watch(onboardingRepositoryProvider)),
+);
+
+/// Marks first-run onboarding as completed.
+final completeOnboardingProvider = Provider<CompleteOnboarding>(
+  (ref) => CompleteOnboarding(ref.watch(onboardingRepositoryProvider)),
+);
+
+/// Reads the user's persisted theme preference.
+final getThemeModeProvider = Provider<GetThemeMode>(
+  (ref) => GetThemeMode(ref.watch(appearanceRepositoryProvider)),
+);
+
+/// Persists a new theme preference.
+final setThemeModeProvider = Provider<SetThemeMode>(
+  (ref) => SetThemeMode(ref.watch(appearanceRepositoryProvider)),
+);
+
 /// The single place where ports are bound to adapters (composition root).
 List<Override> overridesFor(AppFlavor flavor) {
   return [
@@ -131,6 +191,11 @@ List<Override> overridesFor(AppFlavor flavor) {
     databaseProvider.overrideWith((ref) {
       final db = openAppDatabase(
         fileName: flavor == AppFlavor.dev ? 'lumen_dev.db' : 'lumen.db',
+        // Dev stays unencrypted for fast iteration; prod is
+        // SQLCipher-encrypted with a key held in the platform keychain.
+        encryptionKey: flavor == AppFlavor.prod
+            ? () => const SqlCipherKeyStore().getOrCreateKey()
+            : null,
       );
       ref.onDispose(db.close);
       return db;

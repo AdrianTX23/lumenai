@@ -152,6 +152,12 @@ abstract class AppLocalizations {
   /// **'See all'**
   String get homeSeeAll;
 
+  /// No description provided for @homeSettings.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get homeSettings;
+
   /// No description provided for @activityTitle.
   ///
   /// In en, this message translates to:
@@ -571,6 +577,222 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Other'**
   String get categoryOther;
+
+  /// No description provided for @onboardingSkip.
+  ///
+  /// In en, this message translates to:
+  /// **'Skip'**
+  String get onboardingSkip;
+
+  /// No description provided for @onboardingNext.
+  ///
+  /// In en, this message translates to:
+  /// **'Next'**
+  String get onboardingNext;
+
+  /// No description provided for @onboardingGetStarted.
+  ///
+  /// In en, this message translates to:
+  /// **'Get started'**
+  String get onboardingGetStarted;
+
+  /// No description provided for @onboardingPage1Title.
+  ///
+  /// In en, this message translates to:
+  /// **'All your money, one clear view'**
+  String get onboardingPage1Title;
+
+  /// No description provided for @onboardingPage1Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts, cards and spending together — no more switching between apps.'**
+  String get onboardingPage1Body;
+
+  /// No description provided for @onboardingPage2Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights that actually help'**
+  String get onboardingPage2Title;
+
+  /// No description provided for @onboardingPage2Body.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending trends, recurring charges and a forecast for next month, surfaced automatically.'**
+  String get onboardingPage2Body;
+
+  /// No description provided for @onboardingPage3Title.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask Lumen anything'**
+  String get onboardingPage3Title;
+
+  /// No description provided for @onboardingPage3Body.
+  ///
+  /// In en, this message translates to:
+  /// **'A conversational copilot grounded in your real transactions — every answer is traceable.'**
+  String get onboardingPage3Body;
+
+  /// No description provided for @onboardingSecurityTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Protect your app'**
+  String get onboardingSecurityTitle;
+
+  /// No description provided for @onboardingSecurityBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Turn on biometric lock to keep your finances private, even if someone else picks up your phone.'**
+  String get onboardingSecurityBody;
+
+  /// No description provided for @onboardingEnableBiometrics.
+  ///
+  /// In en, this message translates to:
+  /// **'Enable Face ID / fingerprint lock'**
+  String get onboardingEnableBiometrics;
+
+  /// No description provided for @onboardingBiometricReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm it\'s you to protect LUMEN AI'**
+  String get onboardingBiometricReason;
+
+  /// No description provided for @onboardingBiometricUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometrics aren\'t available on this device'**
+  String get onboardingBiometricUnavailable;
+
+  /// No description provided for @lockTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'LUMEN AI is locked'**
+  String get lockTitle;
+
+  /// No description provided for @lockSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Use Face ID or your fingerprint to continue'**
+  String get lockSubtitle;
+
+  /// No description provided for @lockUnlockButton.
+  ///
+  /// In en, this message translates to:
+  /// **'Unlock'**
+  String get lockUnlockButton;
+
+  /// No description provided for @lockReason.
+  ///
+  /// In en, this message translates to:
+  /// **'Confirm it\'s you to open LUMEN AI'**
+  String get lockReason;
+
+  /// No description provided for @lockFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t verify it\'s you — try again'**
+  String get lockFailed;
+
+  /// No description provided for @settingsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Settings'**
+  String get settingsTitle;
+
+  /// No description provided for @settingsAppearance.
+  ///
+  /// In en, this message translates to:
+  /// **'Appearance'**
+  String get settingsAppearance;
+
+  /// No description provided for @settingsAppearanceCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Follows your system\'s light/dark setting'**
+  String get settingsAppearanceCaption;
+
+  /// No description provided for @settingsThemeSystem.
+  ///
+  /// In en, this message translates to:
+  /// **'System'**
+  String get settingsThemeSystem;
+
+  /// No description provided for @settingsThemeLight.
+  ///
+  /// In en, this message translates to:
+  /// **'Light'**
+  String get settingsThemeLight;
+
+  /// No description provided for @settingsThemeDark.
+  ///
+  /// In en, this message translates to:
+  /// **'Dark'**
+  String get settingsThemeDark;
+
+  /// No description provided for @settingsSecurity.
+  ///
+  /// In en, this message translates to:
+  /// **'Security'**
+  String get settingsSecurity;
+
+  /// No description provided for @settingsBiometricLock.
+  ///
+  /// In en, this message translates to:
+  /// **'Biometric lock'**
+  String get settingsBiometricLock;
+
+  /// No description provided for @settingsBiometricUnavailable.
+  ///
+  /// In en, this message translates to:
+  /// **'This device doesn\'t have biometrics available'**
+  String get settingsBiometricUnavailable;
+
+  /// No description provided for @settingsData.
+  ///
+  /// In en, this message translates to:
+  /// **'Data'**
+  String get settingsData;
+
+  /// No description provided for @settingsResetData.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset demo data'**
+  String get settingsResetData;
+
+  /// No description provided for @settingsResetConfirmTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset all data?'**
+  String get settingsResetConfirmTitle;
+
+  /// No description provided for @settingsResetConfirmBody.
+  ///
+  /// In en, this message translates to:
+  /// **'This wipes and regenerates the demo dataset. This can\'t be undone.'**
+  String get settingsResetConfirmBody;
+
+  /// No description provided for @settingsResetConfirmAction.
+  ///
+  /// In en, this message translates to:
+  /// **'Reset'**
+  String get settingsResetConfirmAction;
+
+  /// No description provided for @settingsCancel.
+  ///
+  /// In en, this message translates to:
+  /// **'Cancel'**
+  String get settingsCancel;
+
+  /// No description provided for @settingsResetSuccess.
+  ///
+  /// In en, this message translates to:
+  /// **'Data reset'**
+  String get settingsResetSuccess;
+
+  /// No description provided for @settingsResetFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t reset the data'**
+  String get settingsResetFailed;
 }
 
 class _AppLocalizationsDelegate

@@ -176,15 +176,17 @@ class _Bar extends StatelessWidget {
       tween: Tween(begin: 0, end: clamped),
       duration: reduceMotion ? Duration.zero : LdsMotion.emphasized,
       curve: LdsMotion.emphasizedEasing,
-      builder: (context, value, _) => FractionallySizedBox(
-        heightFactor: value < 0.02 ? 0.02 : value,
-        alignment: Alignment.bottomCenter,
-        child: Container(
-          width: 8,
-          decoration: BoxDecoration(
-            color: color,
-            borderRadius: const BorderRadius.vertical(
-              top: Radius.circular(3),
+      builder: (context, value, _) => RepaintBoundary(
+        child: FractionallySizedBox(
+          heightFactor: value < 0.02 ? 0.02 : value,
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            width: 8,
+            decoration: BoxDecoration(
+              color: color,
+              borderRadius: const BorderRadius.vertical(
+                top: Radius.circular(3),
+              ),
             ),
           ),
         ),
