@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:lumen_app/common/category_ui.dart';
+import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/features/activity/presentation/controllers/activity_controller.dart';
 
 /// Opens the transaction detail sheet with the recategorize flow.
@@ -64,6 +65,7 @@ class _DetailContent extends ConsumerWidget {
             transaction.amount.minorUnits,
             currencyCode: transaction.amount.currencyCode,
             emphasis: AmountEmphasis.hero,
+            locale: appMoneyLocale,
           ),
           const SizedBox(height: LdsSpacing.lg),
           _DetailRow(

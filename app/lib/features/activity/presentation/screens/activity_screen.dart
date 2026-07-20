@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:lumen_app/common/category_ui.dart';
+import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/features/activity/presentation/controllers/activity_controller.dart';
 import 'package:lumen_app/features/activity/presentation/widgets/transaction_detail_sheet.dart';
 
@@ -167,6 +168,7 @@ class _FeedTile extends ConsumerWidget {
       categoryPaletteIndex: transaction.category.paletteIndex,
       amountMinorUnits: transaction.amount.minorUnits,
       currencyCode: transaction.amount.currencyCode,
+      locale: appMoneyLocale,
       subtitle: DateFormat.MMMd(locale).add_Hm().format(transaction.timestamp),
       onTap: () => showTransactionDetailSheet(context, transaction),
     );

@@ -6,6 +6,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:lumen_app/common/category_ui.dart';
+import 'package:lumen_app/common/money_locale.dart';
 import 'package:lumen_app/features/home/presentation/controllers/home_providers.dart';
 import 'package:lumen_app/router/routes.dart';
 
@@ -36,6 +37,7 @@ class HomeScreen extends ConsumerWidget {
           AsyncData(:final value) => AnimatedAmount(
               value.total.minorUnits,
               currencyCode: value.total.currencyCode,
+              locale: appMoneyLocale,
             ),
           AsyncError() => Text('—', style: lds.typography.moneyXl),
           _ => const LdsSkeleton(width: 220, height: 40),
@@ -109,6 +111,7 @@ class _RecentTile extends ConsumerWidget {
       categoryPaletteIndex: transaction.category.paletteIndex,
       amountMinorUnits: transaction.amount.minorUnits,
       currencyCode: transaction.amount.currencyCode,
+      locale: appMoneyLocale,
       subtitle: DateFormat.MMMd(locale).format(transaction.timestamp),
     );
   }

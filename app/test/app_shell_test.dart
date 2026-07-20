@@ -19,8 +19,8 @@ void main() {
 
     // Net worth section, seeded accounts and recent activity render.
     expect(find.text('Net worth'), findsOneWidget);
-    expect(find.text('Lumen Current'), findsOneWidget);
-    expect(find.text('Rainy Day'), findsOneWidget);
+    expect(find.text('Bancolombia'), findsOneWidget);
+    expect(find.text('Nequi'), findsOneWidget);
     expect(find.text('Recent activity'), findsOneWidget);
   });
 
@@ -46,7 +46,7 @@ void main() {
     await tester.pumpAndSettle();
 
     expect(find.text('Netflix'), findsWidgets);
-    expect(find.text('Mercadona'), findsNothing);
+    expect(find.text('Carulla'), findsNothing);
   });
 
   testWidgets('tapping a transaction opens the detail sheet', (tester) async {

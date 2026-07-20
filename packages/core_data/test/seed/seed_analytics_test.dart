@@ -56,11 +56,11 @@ void main() {
       final netflix =
           expectedTxs.where((t) => t.merchantName.value == 'Netflix').toList();
       expect(netflix, hasLength(SeedEngine.monthsOfHistory));
-      expect(netflix.first.amountMinor.value, -1299);
-      expect(netflix.last.amountMinor.value, -1499);
+      expect(netflix.first.amountMinor.value, -26900);
+      expect(netflix.last.amountMinor.value, -33900);
 
       final gym = expectedTxs
-          .where((t) => t.merchantName.value == 'Basic-Fit')
+          .where((t) => t.merchantName.value == 'Smart Fit')
           .toList();
       final byDay = <String, int>{};
       for (final g in gym) {
@@ -74,10 +74,17 @@ void main() {
       );
     });
 
-    test('salary lands every month', () {
+    test('quincena salary lands twice every month', () {
       final salaries =
           expectedTxs.where((t) => t.category.value == Category.income);
-      expect(salaries, hasLength(SeedEngine.monthsOfHistory));
+      // Fixed clock is July 15: the second quincena of the current month
+      // (day 16) is still in the future and must not be emitted.
+      expect(
+        salaries,
+        hasLength(
+          SeedEngine.monthsOfHistory * SeedEngine.salariesPerMonth - 1,
+        ),
+      );
     });
   });
 
@@ -95,7 +102,7 @@ void main() {
       final netWorth = await analytics.watchNetWorth().first;
 
       expect(netWorth.total.minorUnits, foldOpening + foldTx);
-      expect(netWorth.total.currencyCode, 'EUR');
+      expect(netWorth.total.currencyCode, 'COP');
     });
 
     test('spending breakdown for the current period matches exactly', () async {

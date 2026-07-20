@@ -6,7 +6,7 @@ import 'package:core_domain/core_domain.dart';
 final class DriftAnalyticsRepository implements AnalyticsRepository {
   /// Creates the adapter for a single-currency dataset in
   /// [currencyCode].
-  const DriftAnalyticsRepository(this._db, {String currencyCode = 'EUR'})
+  const DriftAnalyticsRepository(this._db, {String currencyCode = 'COP'})
       : _currency = currencyCode;
 
   final LumenDatabase _db;

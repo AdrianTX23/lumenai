@@ -17,6 +17,7 @@ class TransactionTile extends StatelessWidget {
     required this.categoryPaletteIndex,
     required this.amountMinorUnits,
     required this.currencyCode,
+    this.locale = 'en',
     this.subtitle,
     this.onTap,
     super.key,
@@ -36,6 +37,9 @@ class TransactionTile extends StatelessWidget {
 
   /// ISO 4217 currency code.
   final String currencyCode;
+
+  /// BCP-47 locale tag for amount formatting.
+  final String locale;
 
   /// Optional secondary line (e.g. relative time).
   final String? subtitle;
@@ -89,6 +93,7 @@ class TransactionTile extends StatelessWidget {
                 AmountText(
                   amountMinorUnits,
                   currencyCode: currencyCode,
+                  locale: locale,
                 ),
                 const SizedBox(height: 2),
                 CategoryChip(

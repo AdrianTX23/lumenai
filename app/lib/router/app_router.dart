@@ -7,11 +7,19 @@ import 'package:lumen_app/features/insights/presentation/screens/insights_placeh
 import 'package:lumen_app/router/app_shell.dart';
 import 'package:lumen_app/router/routes.dart';
 
+/// Dev affordance: launch on a specific route with
+/// `--dart-define=LUMEN_INITIAL_LOCATION=/activity` (deep-link testing,
+/// screenshot capture). Empty in normal builds.
+const _initialLocationOverride =
+    String.fromEnvironment('LUMEN_INITIAL_LOCATION');
+
 /// Router as a provider so guards can depend on app state
 /// (onboarding-completed, app-lock) once those features land.
 final appRouterProvider = Provider<GoRouter>((ref) {
   return GoRouter(
-    initialLocation: AppRoutes.home.path,
+    initialLocation: _initialLocationOverride.isEmpty
+        ? AppRoutes.home.path
+        : _initialLocationOverride,
     routes: [
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>

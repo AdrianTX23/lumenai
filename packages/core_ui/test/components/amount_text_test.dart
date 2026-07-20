@@ -31,6 +31,28 @@ void main() {
       );
     });
 
+    test('COP renders zero decimals with leading symbol (Colombian usage)', () {
+      // intl renders the symbol gap as a non-breaking space.
+      const nbsp = ' ';
+      expect(
+        LdsMoneyFormat.format(4200000, currencyCode: 'COP', locale: 'es_CO'),
+        '\$$nbsp' '4.200.000',
+      );
+      expect(
+        LdsMoneyFormat.format(-6500, currencyCode: 'COP', locale: 'es_CO'),
+        '-\$$nbsp' '6.500',
+      );
+      expect(
+        LdsMoneyFormat.format(
+          15000,
+          currencyCode: 'COP',
+          locale: 'es_CO',
+          signed: true,
+        ),
+        '+\$$nbsp' '15.000',
+      );
+    });
+
     test('compact mode drops zero decimals only', () {
       expect(
         LdsMoneyFormat.format(124000, currencyCode: 'EUR', compact: true),
