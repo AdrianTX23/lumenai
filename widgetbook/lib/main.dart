@@ -345,6 +345,158 @@ class LumenWidgetbook extends StatelessWidget {
           ],
         ),
         WidgetbookFolder(
+          name: 'Charts',
+          children: [
+            WidgetbookComponent(
+              name: 'SpendDonut',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'With legend',
+                  builder: (context) => _Pad(
+                    child: Center(
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          SpendDonut(
+                            centerValue: r'$ 1.240.000',
+                            centerLabel: 'this month',
+                            slices: [
+                              DonutSlice(
+                                label: 'Groceries',
+                                value: 620000,
+                                valueLabel: r'$ 620.000',
+                                color: context.lds.colors.dataViz[0],
+                              ),
+                              DonutSlice(
+                                label: 'Dining',
+                                value: 340000,
+                                valueLabel: r'$ 340.000',
+                                color: context.lds.colors.dataViz[1],
+                              ),
+                              DonutSlice(
+                                label: 'Transport',
+                                value: 180000,
+                                valueLabel: r'$ 180.000',
+                                color: context.lds.colors.dataViz[2],
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: LdsSpacing.lg),
+                          SpendDonutLegend(
+                            slices: [
+                              DonutSlice(
+                                label: 'Groceries',
+                                value: 620000,
+                                valueLabel: r'$ 620.000',
+                                color: context.lds.colors.dataViz[0],
+                              ),
+                              DonutSlice(
+                                label: 'Dining',
+                                value: 340000,
+                                valueLabel: r'$ 340.000',
+                                color: context.lds.colors.dataViz[1],
+                              ),
+                              DonutSlice(
+                                label: 'Transport',
+                                value: 180000,
+                                valueLabel: r'$ 180.000',
+                                color: context.lds.colors.dataViz[2],
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'CashflowBars',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Six months',
+                  builder: (_) => const _Pad(
+                    child: CashflowBars(
+                      incomeLabel: 'Income',
+                      spendLabel: 'Spend',
+                      points: [
+                        CashflowPoint(
+                          label: 'Feb',
+                          income: 4200000,
+                          spend: 3100000,
+                        ),
+                        CashflowPoint(
+                          label: 'Mar',
+                          income: 4200000,
+                          spend: 3400000,
+                        ),
+                        CashflowPoint(
+                          label: 'Apr',
+                          income: 4200000,
+                          spend: 2900000,
+                        ),
+                        CashflowPoint(
+                          label: 'May',
+                          income: 4200000,
+                          spend: 3900000,
+                        ),
+                        CashflowPoint(
+                          label: 'Jun',
+                          income: 4200000,
+                          spend: 3200000,
+                        ),
+                        CashflowPoint(
+                          label: 'Jul',
+                          income: 4200000,
+                          spend: 3050000,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'BudgetPaceBar',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'States',
+                  builder: (_) => const _Pad(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        BudgetPaceBar(
+                          label: 'Groceries',
+                          spentLabel: r'$ 420.000',
+                          limitLabel: r'$ 800.000',
+                          fraction: 0.52,
+                        ),
+                        SizedBox(height: LdsSpacing.md),
+                        BudgetPaceBar(
+                          label: 'Dining',
+                          spentLabel: r'$ 340.000',
+                          limitLabel: r'$ 400.000',
+                          fraction: 0.9,
+                          statusLabel: 'Near limit',
+                        ),
+                        SizedBox(height: LdsSpacing.md),
+                        BudgetPaceBar(
+                          label: 'Shopping',
+                          spentLabel: r'$ 950.000',
+                          limitLabel: r'$ 800.000',
+                          fraction: 1.19,
+                          statusLabel: 'Over budget',
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        WidgetbookFolder(
           name: 'Feedback',
           children: [
             WidgetbookComponent(

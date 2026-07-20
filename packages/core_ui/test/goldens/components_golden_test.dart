@@ -158,37 +158,20 @@ void main() {
   ldsGoldenPair(
     fileName: 'skeleton',
     scenarios: {
-      'blocks': const _ReducedMotion(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            LdsSkeleton(width: 120, height: 12),
-            SizedBox(height: LdsSpacing.xs),
-            LdsSkeleton(height: 44),
-            SizedBox(height: LdsSpacing.xs),
-            LdsSkeleton(width: 220, height: 12),
-          ],
-        ),
+      // ldsWrap forces reduced motion, so the shimmer renders deterministically.
+      'blocks': const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          LdsSkeleton(width: 120, height: 12),
+          SizedBox(height: LdsSpacing.xs),
+          LdsSkeleton(height: 44),
+          SizedBox(height: LdsSpacing.xs),
+          LdsSkeleton(width: 220, height: 12),
+        ],
       ),
     },
   );
 }
 
 void _noop() {}
-
-/// Freezes the shimmer so the golden is deterministic.
-class _ReducedMotion extends StatelessWidget {
-  const _ReducedMotion({required this.child});
-
-  final Widget child;
-
-  @override
-  Widget build(BuildContext context) {
-    final media = MediaQuery.maybeOf(context) ?? const MediaQueryData();
-    return MediaQuery(
-      data: media.copyWith(disableAnimations: true),
-      child: child,
-    );
-  }
-}

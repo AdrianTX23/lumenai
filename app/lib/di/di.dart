@@ -74,6 +74,41 @@ final seedDemoDataProvider = Provider<SeedDemoData>(
   (ref) => SeedDemoData(ref.watch(seedRepositoryProvider)),
 );
 
+/// Streams category spend for a period.
+final observeSpendingBreakdownProvider = Provider<ObserveSpendingBreakdown>(
+  (ref) => ObserveSpendingBreakdown(ref.watch(analyticsRepositoryProvider)),
+);
+
+/// Streams income vs. spend across trailing months.
+final observeMonthlyCashflowProvider = Provider<ObserveMonthlyCashflow>(
+  (ref) => ObserveMonthlyCashflow(ref.watch(analyticsRepositoryProvider)),
+);
+
+/// Streams detected recurring charges.
+final detectSubscriptionsProvider = Provider<DetectSubscriptions>(
+  (ref) => DetectSubscriptions(ref.watch(transactionRepositoryProvider)),
+);
+
+/// Streams a projection of next period's spend.
+final forecastCashflowProvider = Provider<ForecastCashflow>(
+  (ref) => ForecastCashflow(ref.watch(analyticsRepositoryProvider)),
+);
+
+/// Streams all budgets.
+final observeBudgetsProvider = Provider<ObserveBudgets>(
+  (ref) => ObserveBudgets(ref.watch(budgetRepositoryProvider)),
+);
+
+/// Validates and persists a budget.
+final createBudgetProvider = Provider<CreateBudget>(
+  (ref) => CreateBudget(ref.watch(budgetRepositoryProvider)),
+);
+
+/// Removes a budget.
+final deleteBudgetProvider = Provider<DeleteBudget>(
+  (ref) => DeleteBudget(ref.watch(budgetRepositoryProvider)),
+);
+
 /// The single place where ports are bound to adapters (composition root).
 List<Override> overridesFor(AppFlavor flavor) {
   return [

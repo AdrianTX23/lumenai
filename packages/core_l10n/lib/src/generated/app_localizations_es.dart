@@ -82,10 +82,97 @@ class AppLocalizationsEs extends AppLocalizations {
   String get comingSoonTitle => 'Próximamente';
 
   @override
-  String get comingSoonInsights => 'Tus análisis de gasto están en camino.';
+  String get comingSoonCopilot => 'Tu copiloto financiero está en camino.';
 
   @override
-  String get comingSoonCopilot => 'Tu copiloto financiero está en camino.';
+  String get insightsTitle => 'Análisis';
+
+  @override
+  String get insightsThisMonth => 'Este mes';
+
+  @override
+  String get insightsSpendingByCategory => 'Gasto por categoría';
+
+  @override
+  String get insightsEmptyBreakdown => 'Sin gastos este mes todavía';
+
+  @override
+  String get insightsCashflowTitle => 'Ingresos vs. gasto';
+
+  @override
+  String get insightsIncome => 'Ingresos';
+
+  @override
+  String get insightsSpend => 'Gasto';
+
+  @override
+  String get insightsSubscriptionsTitle => 'Cargos recurrentes';
+
+  @override
+  String get insightsSubscriptionsEmpty =>
+      'Aún no se detectan cargos recurrentes';
+
+  @override
+  String get insightsForecastTitle => 'Próximo mes';
+
+  @override
+  String get insightsForecastCaption =>
+      'Gasto proyectado según tus meses recientes';
+
+  @override
+  String get insightsPriceUp => 'Subió de precio';
+
+  @override
+  String get budgetsTitle => 'Presupuestos';
+
+  @override
+  String get budgetsEmptyTitle => 'Sin presupuestos todavía';
+
+  @override
+  String get budgetsEmptyMessage =>
+      'Define un límite mensual por categoría para seguir tu ritmo de gasto.';
+
+  @override
+  String get budgetsAdd => 'Añadir presupuesto';
+
+  @override
+  String get budgetsNewTitle => 'Nuevo presupuesto';
+
+  @override
+  String get budgetsCategory => 'Categoría';
+
+  @override
+  String get budgetsLimit => 'Límite mensual';
+
+  @override
+  String get budgetsLimitHint => '0';
+
+  @override
+  String get budgetsSave => 'Guardar presupuesto';
+
+  @override
+  String get budgetsDelete => 'Eliminar';
+
+  @override
+  String get budgetsOverBudget => 'Presupuesto superado';
+
+  @override
+  String get budgetsNearLimit => 'Cerca del límite';
+
+  @override
+  String get budgetsCreated => 'Presupuesto guardado';
+
+  @override
+  String get budgetsCreateFailed => 'No se pudo guardar el presupuesto';
+
+  @override
+  String get budgetsDeleted => 'Presupuesto eliminado';
+
+  @override
+  String get budgetsInvalidLimit => 'Ingresa un monto mayor a cero';
+
+  @override
+  String get budgetsSelectCategory => 'Elige una categoría';
 
   @override
   String get categoryGroceries => 'Supermercado';

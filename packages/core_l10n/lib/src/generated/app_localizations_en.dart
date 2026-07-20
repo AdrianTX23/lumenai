@@ -82,10 +82,96 @@ class AppLocalizationsEn extends AppLocalizations {
   String get comingSoonTitle => 'Coming soon';
 
   @override
-  String get comingSoonInsights => 'Your spending insights are on their way.';
+  String get comingSoonCopilot => 'Your financial copilot is on its way.';
 
   @override
-  String get comingSoonCopilot => 'Your financial copilot is on its way.';
+  String get insightsTitle => 'Insights';
+
+  @override
+  String get insightsThisMonth => 'This month';
+
+  @override
+  String get insightsSpendingByCategory => 'Spending by category';
+
+  @override
+  String get insightsEmptyBreakdown => 'No spending yet this month';
+
+  @override
+  String get insightsCashflowTitle => 'Income vs. spend';
+
+  @override
+  String get insightsIncome => 'Income';
+
+  @override
+  String get insightsSpend => 'Spend';
+
+  @override
+  String get insightsSubscriptionsTitle => 'Recurring charges';
+
+  @override
+  String get insightsSubscriptionsEmpty => 'No recurring charges detected yet';
+
+  @override
+  String get insightsForecastTitle => 'Next month';
+
+  @override
+  String get insightsForecastCaption =>
+      'Projected spend, based on your recent months';
+
+  @override
+  String get insightsPriceUp => 'Price up';
+
+  @override
+  String get budgetsTitle => 'Budgets';
+
+  @override
+  String get budgetsEmptyTitle => 'No budgets yet';
+
+  @override
+  String get budgetsEmptyMessage =>
+      'Set a monthly limit for a category to track your pace.';
+
+  @override
+  String get budgetsAdd => 'Add budget';
+
+  @override
+  String get budgetsNewTitle => 'New budget';
+
+  @override
+  String get budgetsCategory => 'Category';
+
+  @override
+  String get budgetsLimit => 'Monthly limit';
+
+  @override
+  String get budgetsLimitHint => '0';
+
+  @override
+  String get budgetsSave => 'Save budget';
+
+  @override
+  String get budgetsDelete => 'Delete';
+
+  @override
+  String get budgetsOverBudget => 'Over budget';
+
+  @override
+  String get budgetsNearLimit => 'Near limit';
+
+  @override
+  String get budgetsCreated => 'Budget saved';
+
+  @override
+  String get budgetsCreateFailed => 'Couldn\'t save the budget';
+
+  @override
+  String get budgetsDeleted => 'Budget deleted';
+
+  @override
+  String get budgetsInvalidLimit => 'Enter an amount greater than zero';
+
+  @override
+  String get budgetsSelectCategory => 'Choose a category';
 
   @override
   String get categoryGroceries => 'Groceries';

@@ -248,17 +248,185 @@ abstract class AppLocalizations {
   /// **'Coming soon'**
   String get comingSoonTitle;
 
-  /// No description provided for @comingSoonInsights.
-  ///
-  /// In en, this message translates to:
-  /// **'Your spending insights are on their way.'**
-  String get comingSoonInsights;
-
   /// No description provided for @comingSoonCopilot.
   ///
   /// In en, this message translates to:
   /// **'Your financial copilot is on its way.'**
   String get comingSoonCopilot;
+
+  /// No description provided for @insightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Insights'**
+  String get insightsTitle;
+
+  /// No description provided for @insightsThisMonth.
+  ///
+  /// In en, this message translates to:
+  /// **'This month'**
+  String get insightsThisMonth;
+
+  /// No description provided for @insightsSpendingByCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending by category'**
+  String get insightsSpendingByCategory;
+
+  /// No description provided for @insightsEmptyBreakdown.
+  ///
+  /// In en, this message translates to:
+  /// **'No spending yet this month'**
+  String get insightsEmptyBreakdown;
+
+  /// No description provided for @insightsCashflowTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Income vs. spend'**
+  String get insightsCashflowTitle;
+
+  /// No description provided for @insightsIncome.
+  ///
+  /// In en, this message translates to:
+  /// **'Income'**
+  String get insightsIncome;
+
+  /// No description provided for @insightsSpend.
+  ///
+  /// In en, this message translates to:
+  /// **'Spend'**
+  String get insightsSpend;
+
+  /// No description provided for @insightsSubscriptionsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Recurring charges'**
+  String get insightsSubscriptionsTitle;
+
+  /// No description provided for @insightsSubscriptionsEmpty.
+  ///
+  /// In en, this message translates to:
+  /// **'No recurring charges detected yet'**
+  String get insightsSubscriptionsEmpty;
+
+  /// No description provided for @insightsForecastTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Next month'**
+  String get insightsForecastTitle;
+
+  /// No description provided for @insightsForecastCaption.
+  ///
+  /// In en, this message translates to:
+  /// **'Projected spend, based on your recent months'**
+  String get insightsForecastCaption;
+
+  /// No description provided for @insightsPriceUp.
+  ///
+  /// In en, this message translates to:
+  /// **'Price up'**
+  String get insightsPriceUp;
+
+  /// No description provided for @budgetsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Budgets'**
+  String get budgetsTitle;
+
+  /// No description provided for @budgetsEmptyTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'No budgets yet'**
+  String get budgetsEmptyTitle;
+
+  /// No description provided for @budgetsEmptyMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'Set a monthly limit for a category to track your pace.'**
+  String get budgetsEmptyMessage;
+
+  /// No description provided for @budgetsAdd.
+  ///
+  /// In en, this message translates to:
+  /// **'Add budget'**
+  String get budgetsAdd;
+
+  /// No description provided for @budgetsNewTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'New budget'**
+  String get budgetsNewTitle;
+
+  /// No description provided for @budgetsCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Category'**
+  String get budgetsCategory;
+
+  /// No description provided for @budgetsLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Monthly limit'**
+  String get budgetsLimit;
+
+  /// No description provided for @budgetsLimitHint.
+  ///
+  /// In en, this message translates to:
+  /// **'0'**
+  String get budgetsLimitHint;
+
+  /// No description provided for @budgetsSave.
+  ///
+  /// In en, this message translates to:
+  /// **'Save budget'**
+  String get budgetsSave;
+
+  /// No description provided for @budgetsDelete.
+  ///
+  /// In en, this message translates to:
+  /// **'Delete'**
+  String get budgetsDelete;
+
+  /// No description provided for @budgetsOverBudget.
+  ///
+  /// In en, this message translates to:
+  /// **'Over budget'**
+  String get budgetsOverBudget;
+
+  /// No description provided for @budgetsNearLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Near limit'**
+  String get budgetsNearLimit;
+
+  /// No description provided for @budgetsCreated.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget saved'**
+  String get budgetsCreated;
+
+  /// No description provided for @budgetsCreateFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t save the budget'**
+  String get budgetsCreateFailed;
+
+  /// No description provided for @budgetsDeleted.
+  ///
+  /// In en, this message translates to:
+  /// **'Budget deleted'**
+  String get budgetsDeleted;
+
+  /// No description provided for @budgetsInvalidLimit.
+  ///
+  /// In en, this message translates to:
+  /// **'Enter an amount greater than zero'**
+  String get budgetsInvalidLimit;
+
+  /// No description provided for @budgetsSelectCategory.
+  ///
+  /// In en, this message translates to:
+  /// **'Choose a category'**
+  String get budgetsSelectCategory;
 
   /// No description provided for @categoryGroceries.
   ///

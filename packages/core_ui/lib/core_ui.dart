@@ -7,6 +7,9 @@
 /// enforced by package boundaries. Components receive plain display data.
 library;
 
+export 'src/charts/budget_pace_bar.dart';
+export 'src/charts/cashflow_bars.dart';
+export 'src/charts/spend_donut.dart';
 export 'src/components/actions/lds_button.dart';
 export 'src/components/actions/lds_search_field.dart';
 export 'src/components/display/amount_text.dart';

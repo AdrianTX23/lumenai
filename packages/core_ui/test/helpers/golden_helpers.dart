@@ -2,16 +2,22 @@ import 'package:alchemist/alchemist.dart';
 import 'package:core_ui/core_ui.dart';
 import 'package:flutter/material.dart';
 
-/// Wraps a golden scenario in an LDS theme with the theme surface behind it.
+/// Wraps a golden scenario in an LDS theme with the theme surface behind
+/// it, forcing reduced motion so `TweenAnimationBuilder`-driven widgets
+/// (charts, skeletons, count-ups) render their settled end state in a
+/// single pump instead of whatever frame the animation happened to be on.
 Widget ldsWrap({required Widget child, required bool dark}) {
   final theme = dark ? buildLdsDarkTheme() : buildLdsLightTheme();
-  return Theme(
-    data: theme,
-    child: Material(
-      color: theme.extension<LdsTheme>()!.colors.surface,
-      child: Padding(
-        padding: const EdgeInsets.all(LdsSpacing.md),
-        child: child,
+  return MediaQuery(
+    data: const MediaQueryData(disableAnimations: true),
+    child: Theme(
+      data: theme,
+      child: Material(
+        color: theme.extension<LdsTheme>()!.colors.surface,
+        child: Padding(
+          padding: const EdgeInsets.all(LdsSpacing.md),
+          child: child,
+        ),
       ),
     ),
   );

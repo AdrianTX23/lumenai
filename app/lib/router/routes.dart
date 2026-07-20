@@ -7,8 +7,12 @@ abstract final class AppRoutes {
   /// Activity tab — transaction feed.
   static const activity = (name: 'activity', path: '/activity');
 
-  /// Insights tab (Phase 4).
+  /// Insights tab.
   static const insights = (name: 'insights', path: '/insights');
+
+  /// Budgets — pushed from Insights (docs/03-design-system.md §4: a 5th
+  /// tab would dilute the IA).
+  static const budgets = (name: 'budgets', path: 'budgets');
 
   /// Copilot tab (Phase 5).
   static const copilot = (name: 'copilot', path: '/copilot');

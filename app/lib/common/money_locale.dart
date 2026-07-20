@@ -6,3 +6,8 @@
 /// not derived from the device locale — amounts must look the same in
 /// every screenshot, test and demo.
 const appMoneyLocale = 'es_CO';
+
+/// The single currency LUMEN AI operates in. Referenced wherever the app
+/// constructs a new Money-bearing entity locally (e.g. a budget draft)
+/// rather than reading a currency off existing data.
+const appCurrencyCode = 'COP';
