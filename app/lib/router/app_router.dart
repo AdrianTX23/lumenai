@@ -2,7 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:lumen_app/features/activity/presentation/screens/activity_screen.dart';
 import 'package:lumen_app/features/budgets/presentation/screens/budgets_screen.dart';
-import 'package:lumen_app/features/copilot/presentation/screens/copilot_placeholder_screen.dart';
+import 'package:lumen_app/features/copilot/presentation/screens/copilot_screen.dart';
 import 'package:lumen_app/features/home/presentation/screens/home_screen.dart';
 import 'package:lumen_app/features/insights/presentation/screens/insights_screen.dart';
 import 'package:lumen_app/router/app_shell.dart';
@@ -65,7 +65,7 @@ final appRouterProvider = Provider<GoRouter>((ref) {
               GoRoute(
                 name: AppRoutes.copilot.name,
                 path: AppRoutes.copilot.path,
-                builder: (context, state) => const CopilotPlaceholderScreen(),
+                builder: (context, state) => const CopilotScreen(),
               ),
             ],
           ),

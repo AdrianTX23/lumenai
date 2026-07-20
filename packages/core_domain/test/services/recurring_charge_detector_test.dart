@@ -102,6 +102,25 @@ void main() {
       expect(detector.detect(txs), isEmpty);
     });
 
+    test(
+        'ignores categories where repeat merchants are typically '
+        'coincidence, even with a clean monthly cadence', () {
+      // Same shape as a real subscription (stable amount, ~monthly gaps)
+      // but dining is habit, not a bill — should not be flagged.
+      final txs = [
+        for (var m = 0; m < 6; m++)
+          _tx(
+            id: 'dining-$m',
+            merchant: 'Crepes & Waffles',
+            amount: -45000,
+            category: Category.dining,
+            when: DateTime(2026, 1 + m, 5),
+          ),
+      ];
+
+      expect(detector.detect(txs), isEmpty);
+    });
+
     test('excludes income and transfers even if they recur monthly', () {
       final txs = [
         for (var m = 0; m < 6; m++) ...[

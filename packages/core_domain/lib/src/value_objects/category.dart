@@ -48,4 +48,21 @@ enum Category {
 
   /// Whether this category counts toward spending analytics.
   bool get isSpending => this != income && this != transfers;
+
+  /// Whether the same merchant charging repeatedly in this category is
+  /// typically a meaningful signal (a bill, a membership) rather than
+  /// coincidental repeat visits to a favorite grocery store or
+  /// restaurant. Recurrence detection (`RecurringChargeDetector`) uses
+  /// this to avoid flagging habitual-but-variable spending as a
+  /// "recurring charge" — the interval math alone can't tell the
+  /// difference, but the category usually can.
+  bool get isTypicallyRecurring => switch (this) {
+        Category.subscriptions ||
+        Category.housing ||
+        Category.utilities ||
+        Category.health ||
+        Category.fees =>
+          true,
+        _ => false,
+      };
 }

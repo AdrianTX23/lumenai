@@ -10,3 +10,9 @@ extension type const TransactionId(String value) {}
 
 /// Identifier of a `Budget`.
 extension type const BudgetId(String value) {}
+
+/// Identifier of a `Conversation`.
+extension type const ConversationId(String value) {}
+
+/// Identifier of a `Message`.
+extension type const MessageId(String value) {}

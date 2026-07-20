@@ -31,12 +31,21 @@ final class RecurringChargeDetector {
 
   /// Detects recurring charges in [transactions] (any order). Excludes
   /// income and transfers — a salary or a card payoff recurs monthly
-  /// too, but neither is a "charge" in the sense a user would recognize.
-  /// Result is sorted most-recently-active first.
+  /// too, but neither is a "charge" in the sense a user would recognize
+  /// — and to categories where repeat merchant charges are typically
+  /// meaningful (`Category.isTypicallyRecurring`): interval clustering
+  /// alone can't distinguish a real subscription from a habit of
+  /// visiting the same grocery store on a similar schedule, so the
+  /// category prior does that filtering instead. Result is sorted most-
+  /// recently-active first.
   List<SubscriptionInsight> detect(List<Transaction> transactions) {
     final byMerchant = <String, List<Transaction>>{};
     for (final tx in transactions) {
-      if (!tx.amount.isNegative || !tx.category.isSpending) continue;
+      if (!tx.amount.isNegative ||
+          !tx.category.isSpending ||
+          !tx.category.isTypicallyRecurring) {
+        continue;
+      }
       (byMerchant[tx.merchantName] ??= []).add(tx);
     }
 

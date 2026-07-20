@@ -194,7 +194,7 @@ final class SeedEngine {
       // Utilities.
       _tx(
         account: _mainId,
-        amount: -(180000 + _rng.nextInt(140000)),
+        amount: -(180000 + _rng.nextInt(45000)),
         raw: 'ENEL CODENSA SA ESP',
         name: 'Enel Codensa',
         category: Category.utilities,

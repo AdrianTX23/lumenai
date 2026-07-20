@@ -175,6 +175,40 @@ class AppLocalizationsEs extends AppLocalizations {
   String get budgetsSelectCategory => 'Elige una categoría';
 
   @override
+  String get copilotInputHint => 'Pregunta sobre tu dinero';
+
+  @override
+  String get copilotSendLabel => 'Enviar';
+
+  @override
+  String get copilotWelcomeTitle => 'Pregúntale a Lumen';
+
+  @override
+  String get copilotWelcomeMessage =>
+      'Puedo ayudarte a entender tus gastos — prueba con esto.';
+
+  @override
+  String get copilotSuggestionDining =>
+      '¿Cuánto gasté en restaurantes este mes?';
+
+  @override
+  String get copilotSuggestionSubscriptions =>
+      '¿Alguna suscripción que deba revisar?';
+
+  @override
+  String get copilotSuggestionForecast =>
+      '¿Cuál es mi pronóstico para el próximo mes?';
+
+  @override
+  String get copilotSourceSingular => 'fuente';
+
+  @override
+  String get copilotSourcePlural => 'fuentes';
+
+  @override
+  String get copilotEvidenceSheetTitle => 'Transacciones citadas';
+
+  @override
   String get categoryGroceries => 'Supermercado';
 
   @override

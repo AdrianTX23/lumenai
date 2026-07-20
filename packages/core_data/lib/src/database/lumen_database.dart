@@ -78,6 +78,10 @@ class LumenDatabase extends _$LumenDatabase {
             t.merchantName.lower().like(needle) | t.note.lower().like(needle),
       );
     }
+    final ids = filter.ids;
+    if (ids != null) {
+      query.where((t) => t.id.isIn(ids.map((id) => id.value)));
+    }
     return query.watch();
   }
 

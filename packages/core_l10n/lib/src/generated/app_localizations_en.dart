@@ -174,6 +174,38 @@ class AppLocalizationsEn extends AppLocalizations {
   String get budgetsSelectCategory => 'Choose a category';
 
   @override
+  String get copilotInputHint => 'Ask about your money';
+
+  @override
+  String get copilotSendLabel => 'Send';
+
+  @override
+  String get copilotWelcomeTitle => 'Ask Lumen';
+
+  @override
+  String get copilotWelcomeMessage =>
+      'I can help you understand your spending — try one of these.';
+
+  @override
+  String get copilotSuggestionDining => 'How much on dining this month?';
+
+  @override
+  String get copilotSuggestionSubscriptions =>
+      'Any subscriptions I should know about?';
+
+  @override
+  String get copilotSuggestionForecast => 'What\'s my forecast for next month?';
+
+  @override
+  String get copilotSourceSingular => 'source';
+
+  @override
+  String get copilotSourcePlural => 'sources';
+
+  @override
+  String get copilotEvidenceSheetTitle => 'Cited transactions';
+
+  @override
   String get categoryGroceries => 'Groceries';
 
   @override

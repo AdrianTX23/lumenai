@@ -47,6 +47,16 @@ final seedRepositoryProvider = Provider<SeedRepository>(
   (ref) => DriftSeedRepository(ref.watch(databaseProvider)),
 );
 
+/// The copilot pipeline. Mock in every flavor today — Phase 5 swaps this
+/// for the real SSE proxy client behind the same port, per
+/// docs/05-backend-and-ai.md.
+final copilotRepositoryProvider = Provider<CopilotRepository>(
+  (ref) => MockCopilotRepository(
+    analytics: ref.watch(analyticsRepositoryProvider),
+    transactions: ref.watch(transactionRepositoryProvider),
+  ),
+);
+
 // ── Use cases ────────────────────────────────────────────────────────────
 
 /// Streams accounts with balances.
@@ -107,6 +117,11 @@ final createBudgetProvider = Provider<CreateBudget>(
 /// Removes a budget.
 final deleteBudgetProvider = Provider<DeleteBudget>(
   (ref) => DeleteBudget(ref.watch(budgetRepositoryProvider)),
+);
+
+/// Streams the copilot's answer to a question.
+final askCopilotProvider = Provider<AskCopilot>(
+  (ref) => AskCopilot(ref.watch(copilotRepositoryProvider)),
 );
 
 /// The single place where ports are bound to adapters (composition root).

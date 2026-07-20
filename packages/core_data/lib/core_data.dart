@@ -13,4 +13,5 @@ export 'src/repositories/drift_analytics_repository.dart';
 export 'src/repositories/drift_budget_repository.dart';
 export 'src/repositories/drift_seed_repository.dart';
 export 'src/repositories/drift_transaction_repository.dart';
+export 'src/repositories/mock_copilot_repository.dart';
 export 'src/seed/seed_engine.dart';

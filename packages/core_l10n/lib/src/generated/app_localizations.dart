@@ -428,6 +428,66 @@ abstract class AppLocalizations {
   /// **'Choose a category'**
   String get budgetsSelectCategory;
 
+  /// No description provided for @copilotInputHint.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about your money'**
+  String get copilotInputHint;
+
+  /// No description provided for @copilotSendLabel.
+  ///
+  /// In en, this message translates to:
+  /// **'Send'**
+  String get copilotSendLabel;
+
+  /// No description provided for @copilotWelcomeTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask Lumen'**
+  String get copilotWelcomeTitle;
+
+  /// No description provided for @copilotWelcomeMessage.
+  ///
+  /// In en, this message translates to:
+  /// **'I can help you understand your spending — try one of these.'**
+  String get copilotWelcomeMessage;
+
+  /// No description provided for @copilotSuggestionDining.
+  ///
+  /// In en, this message translates to:
+  /// **'How much on dining this month?'**
+  String get copilotSuggestionDining;
+
+  /// No description provided for @copilotSuggestionSubscriptions.
+  ///
+  /// In en, this message translates to:
+  /// **'Any subscriptions I should know about?'**
+  String get copilotSuggestionSubscriptions;
+
+  /// No description provided for @copilotSuggestionForecast.
+  ///
+  /// In en, this message translates to:
+  /// **'What\'s my forecast for next month?'**
+  String get copilotSuggestionForecast;
+
+  /// No description provided for @copilotSourceSingular.
+  ///
+  /// In en, this message translates to:
+  /// **'source'**
+  String get copilotSourceSingular;
+
+  /// No description provided for @copilotSourcePlural.
+  ///
+  /// In en, this message translates to:
+  /// **'sources'**
+  String get copilotSourcePlural;
+
+  /// No description provided for @copilotEvidenceSheetTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Cited transactions'**
+  String get copilotEvidenceSheetTitle;
+
   /// No description provided for @categoryGroceries.
   ///
   /// In en, this message translates to:

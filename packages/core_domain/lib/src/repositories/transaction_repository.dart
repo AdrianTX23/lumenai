@@ -10,6 +10,7 @@ final class TransactionFilter {
     this.accountId,
     this.category,
     this.searchText,
+    this.ids,
     this.limit = 50,
     this.offset = 0,
   });
@@ -22,6 +23,10 @@ final class TransactionFilter {
 
   /// Case-insensitive match on merchant name or note.
   final String? searchText;
+
+  /// Restrict to exactly these transactions — how the copilot's cited
+  /// evidence gets resolved back to real ledger rows.
+  final List<TransactionId>? ids;
 
   /// Page size.
   final int limit;

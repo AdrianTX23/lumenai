@@ -497,6 +497,87 @@ class LumenWidgetbook extends StatelessWidget {
           ],
         ),
         WidgetbookFolder(
+          name: 'Copilot',
+          children: [
+            WidgetbookComponent(
+              name: 'ChatBubble',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Conversation',
+                  builder: (_) => const _Pad(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        ChatBubble(
+                          role: ChatBubbleRole.user,
+                          content: 'How much did I spend on dining?',
+                        ),
+                        SizedBox(height: LdsSpacing.sm),
+                        ChatBubble(
+                          role: ChatBubbleRole.assistant,
+                          content: r"You've spent $ 328.494 on dining "
+                              'this month.',
+                          evidenceLabel: '9 sources',
+                        ),
+                        SizedBox(height: LdsSpacing.sm),
+                        ChatBubble(
+                          role: ChatBubbleRole.assistant,
+                          content: 'Thinking',
+                          isStreaming: true,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'PromptSuggestionChip',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'Row',
+                  builder: (_) => const _Pad(
+                    child: Wrap(
+                      spacing: LdsSpacing.xs,
+                      runSpacing: LdsSpacing.xs,
+                      children: [
+                        PromptSuggestionChip(
+                          label: 'How much on dining?',
+                          onTap: _noop,
+                        ),
+                        PromptSuggestionChip(
+                          label: 'Any subscriptions?',
+                          onTap: _noop,
+                        ),
+                        PromptSuggestionChip(
+                          label: 'Forecast next month',
+                          onTap: _noop,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            WidgetbookComponent(
+              name: 'InsightCard',
+              useCases: [
+                WidgetbookUseCase(
+                  name: 'With confidence',
+                  builder: (_) => const _Pad(
+                    child: InsightCard(
+                      title: 'Price increase detected',
+                      body: r'Netflix went from $ 26.900 to $ 33.900, '
+                          'a 26% increase.',
+                      confidenceLabel: 'Based on 18 charges',
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+        WidgetbookFolder(
           name: 'Feedback',
           children: [
             WidgetbookComponent(
