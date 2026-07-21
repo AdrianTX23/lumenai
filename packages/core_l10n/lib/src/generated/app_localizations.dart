@@ -1009,6 +1009,108 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Choose an account type'**
   String get accountsSelectType;
+
+  /// No description provided for @settingsAbout.
+  ///
+  /// In en, this message translates to:
+  /// **'About'**
+  String get settingsAbout;
+
+  /// No description provided for @aboutTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'About LUMEN AI'**
+  String get aboutTitle;
+
+  /// No description provided for @aboutTagline.
+  ///
+  /// In en, this message translates to:
+  /// **'Your money, made intelligent.'**
+  String get aboutTagline;
+
+  /// No description provided for @aboutIntro.
+  ///
+  /// In en, this message translates to:
+  /// **'LUMEN AI is an AI-native personal finance app: it unifies your accounts and cards, understands your spending, and answers questions about your money through a copilot grounded in real data — never a made-up number. This is a live demo running on a realistic sample dataset; you can also add your own accounts and transactions.'**
+  String get aboutIntro;
+
+  /// No description provided for @aboutFeatureWalletTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Unified wallet'**
+  String get aboutFeatureWalletTitle;
+
+  /// No description provided for @aboutFeatureWalletBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Accounts, cards and net worth in one glance.'**
+  String get aboutFeatureWalletBody;
+
+  /// No description provided for @aboutFeatureInsightsTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Smart insights'**
+  String get aboutFeatureInsightsTitle;
+
+  /// No description provided for @aboutFeatureInsightsBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Spending breakdowns, subscriptions and forecasts.'**
+  String get aboutFeatureInsightsBody;
+
+  /// No description provided for @aboutFeatureCopilotTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Lumen Copilot'**
+  String get aboutFeatureCopilotTitle;
+
+  /// No description provided for @aboutFeatureCopilotBody.
+  ///
+  /// In en, this message translates to:
+  /// **'Ask about your money and get grounded answers.'**
+  String get aboutFeatureCopilotBody;
+
+  /// No description provided for @aboutTryTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Try it on your device'**
+  String get aboutTryTitle;
+
+  /// No description provided for @aboutTrySubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Install it or open it in any browser — your data stays only on your device.'**
+  String get aboutTrySubtitle;
+
+  /// No description provided for @aboutDownloadAndroid.
+  ///
+  /// In en, this message translates to:
+  /// **'Download for Android (APK)'**
+  String get aboutDownloadAndroid;
+
+  /// No description provided for @aboutTryIphone.
+  ///
+  /// In en, this message translates to:
+  /// **'Open on iPhone (web)'**
+  String get aboutTryIphone;
+
+  /// No description provided for @aboutViewSource.
+  ///
+  /// In en, this message translates to:
+  /// **'View source on GitHub'**
+  String get aboutViewSource;
+
+  /// No description provided for @aboutPrivacyNote.
+  ///
+  /// In en, this message translates to:
+  /// **'No account, no sign-up, no server. Everything you enter lives only in this browser or on your phone.'**
+  String get aboutPrivacyNote;
+
+  /// No description provided for @aboutOpenLinkFailed.
+  ///
+  /// In en, this message translates to:
+  /// **'Couldn\'t open the link'**
+  String get aboutOpenLinkFailed;
 }
 
 class _AppLocalizationsDelegate

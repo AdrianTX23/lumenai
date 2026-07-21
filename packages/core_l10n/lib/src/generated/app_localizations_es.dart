@@ -479,4 +479,61 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get accountsSelectType => 'Elige un tipo de cuenta';
+
+  @override
+  String get settingsAbout => 'Acerca de';
+
+  @override
+  String get aboutTitle => 'Acerca de LUMEN AI';
+
+  @override
+  String get aboutTagline => 'Tu dinero, con inteligencia.';
+
+  @override
+  String get aboutIntro =>
+      'LUMEN AI es una app de finanzas personales nativa de IA: unifica tus cuentas y tarjetas, entiende tus gastos y responde preguntas sobre tu dinero con un copiloto basado en datos reales, nunca en cifras inventadas. Esta es una demo en vivo con un conjunto de datos de ejemplo realista; también puedes agregar tus propias cuentas y transacciones.';
+
+  @override
+  String get aboutFeatureWalletTitle => 'Billetera unificada';
+
+  @override
+  String get aboutFeatureWalletBody =>
+      'Cuentas, tarjetas y patrimonio de un vistazo.';
+
+  @override
+  String get aboutFeatureInsightsTitle => 'Análisis inteligente';
+
+  @override
+  String get aboutFeatureInsightsBody =>
+      'Desglose de gastos, suscripciones y pronósticos.';
+
+  @override
+  String get aboutFeatureCopilotTitle => 'Copiloto Lumen';
+
+  @override
+  String get aboutFeatureCopilotBody =>
+      'Pregunta sobre tu dinero y recibe respuestas fundamentadas.';
+
+  @override
+  String get aboutTryTitle => 'Pruébala en tu dispositivo';
+
+  @override
+  String get aboutTrySubtitle =>
+      'Instálala o ábrela en cualquier navegador — tus datos quedan solo en tu dispositivo.';
+
+  @override
+  String get aboutDownloadAndroid => 'Descargar para Android (APK)';
+
+  @override
+  String get aboutTryIphone => 'Abrir en iPhone (web)';
+
+  @override
+  String get aboutViewSource => 'Ver código en GitHub';
+
+  @override
+  String get aboutPrivacyNote =>
+      'Sin cuenta, sin registro, sin servidor. Todo lo que ingresas vive solo en este navegador o en tu teléfono.';
+
+  @override
+  String get aboutOpenLinkFailed => 'No se pudo abrir el enlace';
 }

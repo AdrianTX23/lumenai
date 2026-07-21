@@ -3,6 +3,9 @@
 .packages
 build/
 coverage/
+
+# Local build artifacts (the web build ships its own copy under app/web/downloads/)
+/dist/
 .flutter-plugins
 .flutter-plugins-dependencies
 *.iml

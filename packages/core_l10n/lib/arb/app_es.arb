@@ -151,5 +151,22 @@
   "accountsCreated": "Cuenta creada",
   "accountsCreateFailed": "No se pudo crear la cuenta",
   "accountsInvalidName": "Ingresa un nombre",
-  "accountsSelectType": "Elige un tipo de cuenta"
+  "accountsSelectType": "Elige un tipo de cuenta",
+  "settingsAbout": "Acerca de",
+  "aboutTitle": "Acerca de LUMEN AI",
+  "aboutTagline": "Tu dinero, con inteligencia.",
+  "aboutIntro": "LUMEN AI es una app de finanzas personales nativa de IA: unifica tus cuentas y tarjetas, entiende tus gastos y responde preguntas sobre tu dinero con un copiloto basado en datos reales, nunca en cifras inventadas. Esta es una demo en vivo con un conjunto de datos de ejemplo realista; también puedes agregar tus propias cuentas y transacciones.",
+  "aboutFeatureWalletTitle": "Billetera unificada",
+  "aboutFeatureWalletBody": "Cuentas, tarjetas y patrimonio de un vistazo.",
+  "aboutFeatureInsightsTitle": "Análisis inteligente",
+  "aboutFeatureInsightsBody": "Desglose de gastos, suscripciones y pronósticos.",
+  "aboutFeatureCopilotTitle": "Copiloto Lumen",
+  "aboutFeatureCopilotBody": "Pregunta sobre tu dinero y recibe respuestas fundamentadas.",
+  "aboutTryTitle": "Pruébala en tu dispositivo",
+  "aboutTrySubtitle": "Instálala o ábrela en cualquier navegador — tus datos quedan solo en tu dispositivo.",
+  "aboutDownloadAndroid": "Descargar para Android (APK)",
+  "aboutTryIphone": "Abrir en iPhone (web)",
+  "aboutViewSource": "Ver código en GitHub",
+  "aboutPrivacyNote": "Sin cuenta, sin registro, sin servidor. Todo lo que ingresas vive solo en este navegador o en tu teléfono.",
+  "aboutOpenLinkFailed": "No se pudo abrir el enlace"
 }

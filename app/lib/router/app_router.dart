@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:lumen_app/features/about/presentation/screens/about_screen.dart';
 import 'package:lumen_app/features/activity/presentation/screens/activity_screen.dart';
 import 'package:lumen_app/features/app_lock/presentation/screens/lock_screen.dart';
 import 'package:lumen_app/features/budgets/presentation/screens/budgets_screen.dart';
@@ -72,6 +73,11 @@ final appRouterProvider = Provider<GoRouter>((ref) {
         name: AppRoutes.settings.name,
         path: AppRoutes.settings.path,
         builder: (context, state) => const SettingsScreen(),
+      ),
+      GoRoute(
+        name: AppRoutes.about.name,
+        path: AppRoutes.about.path,
+        builder: (context, state) => const AboutScreen(),
       ),
       StatefulShellRoute.indexedStack(
         builder: (context, state, navigationShell) =>

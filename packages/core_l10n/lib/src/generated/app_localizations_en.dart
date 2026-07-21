@@ -475,4 +475,61 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get accountsSelectType => 'Choose an account type';
+
+  @override
+  String get settingsAbout => 'About';
+
+  @override
+  String get aboutTitle => 'About LUMEN AI';
+
+  @override
+  String get aboutTagline => 'Your money, made intelligent.';
+
+  @override
+  String get aboutIntro =>
+      'LUMEN AI is an AI-native personal finance app: it unifies your accounts and cards, understands your spending, and answers questions about your money through a copilot grounded in real data — never a made-up number. This is a live demo running on a realistic sample dataset; you can also add your own accounts and transactions.';
+
+  @override
+  String get aboutFeatureWalletTitle => 'Unified wallet';
+
+  @override
+  String get aboutFeatureWalletBody =>
+      'Accounts, cards and net worth in one glance.';
+
+  @override
+  String get aboutFeatureInsightsTitle => 'Smart insights';
+
+  @override
+  String get aboutFeatureInsightsBody =>
+      'Spending breakdowns, subscriptions and forecasts.';
+
+  @override
+  String get aboutFeatureCopilotTitle => 'Lumen Copilot';
+
+  @override
+  String get aboutFeatureCopilotBody =>
+      'Ask about your money and get grounded answers.';
+
+  @override
+  String get aboutTryTitle => 'Try it on your device';
+
+  @override
+  String get aboutTrySubtitle =>
+      'Install it or open it in any browser — your data stays only on your device.';
+
+  @override
+  String get aboutDownloadAndroid => 'Download for Android (APK)';
+
+  @override
+  String get aboutTryIphone => 'Open on iPhone (web)';
+
+  @override
+  String get aboutViewSource => 'View source on GitHub';
+
+  @override
+  String get aboutPrivacyNote =>
+      'No account, no sign-up, no server. Everything you enter lives only in this browser or on your phone.';
+
+  @override
+  String get aboutOpenLinkFailed => 'Couldn\'t open the link';
 }

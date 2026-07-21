@@ -25,4 +25,8 @@ abstract final class AppRoutes {
 
   /// Settings — pushed from Home (Phase 6).
   static const settings = (name: 'settings', path: '/settings');
+
+  /// About — pushed from Settings. Intro + install links for the
+  /// portfolio demo.
+  static const about = (name: 'about', path: '/about');
 }

@@ -151,5 +151,22 @@
   "accountsCreated": "Account created",
   "accountsCreateFailed": "Couldn't create the account",
   "accountsInvalidName": "Enter a name",
-  "accountsSelectType": "Choose an account type"
+  "accountsSelectType": "Choose an account type",
+  "settingsAbout": "About",
+  "aboutTitle": "About LUMEN AI",
+  "aboutTagline": "Your money, made intelligent.",
+  "aboutIntro": "LUMEN AI is an AI-native personal finance app: it unifies your accounts and cards, understands your spending, and answers questions about your money through a copilot grounded in real data — never a made-up number. This is a live demo running on a realistic sample dataset; you can also add your own accounts and transactions.",
+  "aboutFeatureWalletTitle": "Unified wallet",
+  "aboutFeatureWalletBody": "Accounts, cards and net worth in one glance.",
+  "aboutFeatureInsightsTitle": "Smart insights",
+  "aboutFeatureInsightsBody": "Spending breakdowns, subscriptions and forecasts.",
+  "aboutFeatureCopilotTitle": "Lumen Copilot",
+  "aboutFeatureCopilotBody": "Ask about your money and get grounded answers.",
+  "aboutTryTitle": "Try it on your device",
+  "aboutTrySubtitle": "Install it or open it in any browser — your data stays only on your device.",
+  "aboutDownloadAndroid": "Download for Android (APK)",
+  "aboutTryIphone": "Open on iPhone (web)",
+  "aboutViewSource": "View source on GitHub",
+  "aboutPrivacyNote": "No account, no sign-up, no server. Everything you enter lives only in this browser or on your phone.",
+  "aboutOpenLinkFailed": "Couldn't open the link"
 }

@@ -9,6 +9,7 @@ import 'package:go_router/go_router.dart';
 import 'package:lumen_app/common/add_account_sheet.dart';
 import 'package:lumen_app/common/theme_mode_controller.dart';
 import 'package:lumen_app/di/di.dart';
+import 'package:lumen_app/router/routes.dart';
 
 /// Appearance, security and data controls, per
 /// docs/01-product-vision.md's settings scope.
@@ -154,6 +155,16 @@ class _SettingsScreenState extends ConsumerState<SettingsScreen> {
             loading: _resetting,
             expand: true,
             onPressed: _confirmReset,
+          ),
+          const SizedBox(height: LdsSpacing.xl),
+          _SectionLabel(l10n.settingsAbout),
+          const SizedBox(height: LdsSpacing.xs),
+          LdsButton(
+            label: l10n.aboutTitle,
+            variant: LdsButtonVariant.secondary,
+            icon: Icons.info_outline_rounded,
+            expand: true,
+            onPressed: () => context.pushNamed(AppRoutes.about.name),
           ),
         ],
       ),
