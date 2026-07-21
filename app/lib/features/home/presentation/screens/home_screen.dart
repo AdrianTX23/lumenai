@@ -43,6 +43,8 @@ class HomeScreen extends ConsumerWidget {
             ),
           ),
         ),
+        _AboutBanner(l10n: l10n, lds: lds),
+        const SizedBox(height: LdsSpacing.lg),
         Text(l10n.homeNetWorth, style: lds.typography.bodyMuted),
         const SizedBox(height: LdsSpacing.xxs),
         switch (netWorth) {
@@ -139,6 +141,68 @@ class _RecentTile extends ConsumerWidget {
       currencyCode: transaction.amount.currencyCode,
       locale: appMoneyLocale,
       subtitle: DateFormat.MMMd(locale).format(transaction.timestamp),
+    );
+  }
+}
+
+/// Portfolio-visitor entry point: a compact, always-visible banner
+/// pointing to [AppRoutes.about] — recruiters shouldn't have to find
+/// Settings first to learn what this app is or how to try it natively.
+class _AboutBanner extends StatelessWidget {
+  const _AboutBanner({required this.l10n, required this.lds});
+
+  final AppLocalizations l10n;
+  final LdsTheme lds;
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.only(bottom: LdsSpacing.md),
+      child: LdsCard(
+        padding: const EdgeInsets.symmetric(
+          horizontal: LdsSpacing.md,
+          vertical: LdsSpacing.sm,
+        ),
+        onTap: () => context.push(AppRoutes.about.path),
+        child: Row(
+          children: [
+            Container(
+              width: 36,
+              height: 36,
+              alignment: Alignment.center,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(colors: lds.colors.accentGradient),
+                borderRadius: BorderRadius.circular(LdsRadius.sm),
+              ),
+              child: const Icon(
+                Icons.auto_awesome_rounded,
+                size: 18,
+                color: Colors.black,
+              ),
+            ),
+            const SizedBox(width: LdsSpacing.sm),
+            Expanded(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    l10n.homeAboutBannerTitle,
+                    style: lds.typography.label,
+                  ),
+                  Text(
+                    l10n.homeAboutBannerSubtitle,
+                    style: lds.typography.caption,
+                  ),
+                ],
+              ),
+            ),
+            Icon(
+              Icons.chevron_right_rounded,
+              color: lds.colors.textMuted,
+            ),
+          ],
+        ),
+      ),
     );
   }
 }

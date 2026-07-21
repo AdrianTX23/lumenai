@@ -6,6 +6,9 @@ coverage/
 
 # Local build artifacts (the web build ships its own copy under app/web/downloads/)
 /dist/
+
+# Alchemist golden-test failure diffs (local-only debugging output)
+**/test/goldens/failures/
 .flutter-plugins
 .flutter-plugins-dependencies
 *.iml

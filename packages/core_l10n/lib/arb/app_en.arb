@@ -168,5 +168,7 @@
   "aboutTryIphone": "Open on iPhone (web)",
   "aboutViewSource": "View source on GitHub",
   "aboutPrivacyNote": "No account, no sign-up, no server. Everything you enter lives only in this browser or on your phone.",
-  "aboutOpenLinkFailed": "Couldn't open the link"
+  "aboutOpenLinkFailed": "Couldn't open the link",
+  "homeAboutBannerTitle": "Portfolio project",
+  "homeAboutBannerSubtitle": "Tap to learn more or install the app"
 }

@@ -1111,6 +1111,18 @@ abstract class AppLocalizations {
   /// In en, this message translates to:
   /// **'Couldn\'t open the link'**
   String get aboutOpenLinkFailed;
+
+  /// No description provided for @homeAboutBannerTitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Portfolio project'**
+  String get homeAboutBannerTitle;
+
+  /// No description provided for @homeAboutBannerSubtitle.
+  ///
+  /// In en, this message translates to:
+  /// **'Tap to learn more or install the app'**
+  String get homeAboutBannerSubtitle;
 }
 
 class _AppLocalizationsDelegate

@@ -168,5 +168,7 @@
   "aboutTryIphone": "Abrir en iPhone (web)",
   "aboutViewSource": "Ver código en GitHub",
   "aboutPrivacyNote": "Sin cuenta, sin registro, sin servidor. Todo lo que ingresas vive solo en este navegador o en tu teléfono.",
-  "aboutOpenLinkFailed": "No se pudo abrir el enlace"
+  "aboutOpenLinkFailed": "No se pudo abrir el enlace",
+  "homeAboutBannerTitle": "Proyecto de portafolio",
+  "homeAboutBannerSubtitle": "Toca para conocer más o instalar la app"
 }

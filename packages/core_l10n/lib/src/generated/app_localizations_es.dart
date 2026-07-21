@@ -536,4 +536,11 @@ class AppLocalizationsEs extends AppLocalizations {
 
   @override
   String get aboutOpenLinkFailed => 'No se pudo abrir el enlace';
+
+  @override
+  String get homeAboutBannerTitle => 'Proyecto de portafolio';
+
+  @override
+  String get homeAboutBannerSubtitle =>
+      'Toca para conocer más o instalar la app';
 }

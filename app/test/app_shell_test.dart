@@ -17,10 +17,19 @@ void main() {
     );
     await tester.pumpAndSettle();
 
-    // Net worth section, seeded accounts and recent activity render.
+    // Net worth section and seeded accounts render above the fold.
     expect(find.text('Net worth'), findsOneWidget);
     expect(find.text('Bancolombia'), findsOneWidget);
     expect(find.text('Nequi'), findsOneWidget);
+
+    // Home is a single ListView taller than the viewport — the about
+    // banner pushes recent activity below the fold, so the sliver only
+    // mounts it once scrolled into view.
+    await tester.scrollUntilVisible(
+      find.text('Recent activity'),
+      300,
+      scrollable: find.byType(Scrollable).first,
+    );
     expect(find.text('Recent activity'), findsOneWidget);
   });
 
